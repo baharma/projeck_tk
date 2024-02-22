@@ -4,4 +4,5 @@
     </h4>
 
     @livewire('module.category.category-table')
+    @livewire('module.category.modal-category')
 </x-main-layout>
