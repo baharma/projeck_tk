@@ -98,15 +98,15 @@
     <script src="{{asset('sneat-1.0.0/assets/vendor/libs/popper/popper.js')}}"></script>
     <script src="{{asset('sneat-1.0.0/assets/vendor/js/bootstrap.js')}}"></script>
     <script src="{{asset('sneat-1.0.0/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js')}}"></script>
+    <script src="{{asset('sneat-1.0.0/assets/vendor/css/core.css')}}"></script>
 
-    <script src="{{asset('sneat-1.0.0/assets/vendor/js/menu.js')}}"></script>
 
     <script src="{{asset('sneat-1.0.0/assets/vendor/libs/apex-charts/apexcharts.js')}}"></script>
     <script src="{{asset('sneat-1.0.0/assets/vendor/libs/sweetalert2/dist/sweetalert2.all.min.js')}}"></script>
 
     <!-- Main JS -->
     <script src="{{asset('sneat-1.0.0/assets/js/main.js')}}"></script>
-
+    @stack('script')
     <!-- Page JS -->
     <script src="{{asset('sneat-1.0.0/assets/js/dashboards-analytics.js')}}"></script>
     <script>
