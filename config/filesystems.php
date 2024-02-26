@@ -32,10 +32,13 @@ return [
 
         'local' => [
             'driver' => 'local',
-            'root' => storage_path('app'),
-            'throw' => false,
+            'root' => storage_path('assets/images'),
+            'throw' => true,
         ],
-
+        'images_local' => [
+            'driver' => 'local',
+            'root' => public_path('assets/images/'),
+        ],
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),

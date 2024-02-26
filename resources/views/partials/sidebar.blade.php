@@ -93,13 +93,25 @@
                 <div data-i18n="Analytics">Dashboard</div>
             </a>
         </li>
-        
+
         <li class="menu-item {{ Route::currentRouteName() == 'category.list' ? 'active' : ''; }}">
             <a href="{{ route('category.list') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Kategori</div>
             </a>
         </li>
-
+        <li class="menu-item">
+            <a href="javascript:void(0)" class="menu-link menu-toggle">
+              <i class="menu-icon tf-icons bx bx-box"></i>
+              <div data-i18n="User interface">Post</div>
+            </a>
+            <ul class="menu-sub">
+              <li class="menu-item">
+                <a href="{{route('kegiatan')}}" class="menu-link">
+                  <div data-i18n="Accordion">Kegiatan</div>
+                </a>
+              </li>
+            </ul>
+          </li>
     </ul>
 </aside>
