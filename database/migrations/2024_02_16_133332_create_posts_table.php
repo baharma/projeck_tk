@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('slug');
             $table->text('article');
+            $table->text('thumnail');
             $table->enum('status' , ['pending', 'publish']);
             $table->unsignedBigInteger('created_by');
             $table->timestamps();

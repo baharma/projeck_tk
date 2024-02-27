@@ -12,7 +12,7 @@ class Post extends Model
     use HasFactory;
 
     protected $fillable = [
-        'title' , 'slug' , 'article', 'status' , 'created_by',
+        'title' , 'slug' ,'thumnail' ,'article', 'status' , 'created_by',
     ];
 
     protected static function boot()
@@ -20,7 +20,7 @@ class Post extends Model
         parent::boot();
 
         static::creating(function ($post) {
-           
+
             $post->slug = Str::slug($post->title);
             $post->created_by = Auth::user()->id;
         });

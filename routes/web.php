@@ -33,9 +33,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::controller(HelperController::class)->group(function(){
-    Route::post('/image-upload/ckeditor','ckeditorUploadImage')->name('image.upload');
-});
+Route::post('image-upload/ckeditor', [HelperController::class, 'ckeditorUploadImage'])->name('image.upload');
 
 
 
