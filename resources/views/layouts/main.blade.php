@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <!-- beautify ignore:start -->
-<html
-  lang="en"
-  class="light-style layout-menu-fixed"
->
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}"   class="light-style layout-menu-fixed">
+
   <head>
     <meta charset="utf-8" />
     <meta
@@ -53,7 +51,9 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="{{asset('sneat-1.0.0/assets/js/config.js')}}"></script>
-
+    <script src="{{asset('sneat-1.0.0/js/ckeditor.js')}}"></script>
+    <link rel="stylesheet" href="{{asset('sneat-1.0.0/css/dropify.css')}}">
+    <script src="{{asset('sneat-1.0.0/js/dropify.js')}}"> </script>
   </head>
 
   <body>
@@ -106,7 +106,6 @@
 
     <!-- Main JS -->
     <script src="{{asset('sneat-1.0.0/assets/js/main.js')}}"></script>
-    @stack('script')
     <!-- Page JS -->
     <script src="{{asset('sneat-1.0.0/assets/js/dashboards-analytics.js')}}"></script>
     <script>
@@ -117,7 +116,19 @@
               icon: event.detail[0].type,
           })
       })
-
     </script>
+    <script>
+        $('.dropify').dropify({
+            messages: {
+                'default': 'Minimum image size 1 MB',
+                'replace': 'Drag and drop or click to replace',
+                'remove': 'Remove',
+                'error': 'Oops! Something wrong happened.'
+            }
+
+        });
+    </script>
+
+    @stack('script')
   </body>
 </html>

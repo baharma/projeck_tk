@@ -1,67 +1,53 @@
 <div>
     <div class="row">
         <div class="col-xl">
-            <div class="card mb-4">
-                <div class="card-header d-flex justify-content-between align-items-center">
-                    <h5 class="mb-0">Form</h5>
-                    <small class="text-muted float-end">Default label</small>
-                </div>
-                <div class="card-body">
-                    <form wire:submit='save'>
-                        <div class="mb-3">
-                            <label class="form-label" for="basic-default-fullname">Title Kegiatan</label>
-                            <input type="text" class="form-control" id="basic-default-fullname"
-                                placeholder="Title Kegiatan" />
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleFormControlSelect1" class="form-label">Status</label>
-                            <select class="form-select" id="exampleFormControlSelect1"
-                                aria-label="Default select example">
-                                <option selected>Open this select menu</option>
-                                <option value="pending">pending</option>
-                                <option value="publish">publish</option>
-                            </select>
+            <div class="d-flex flex-row-reverse bd-highlight mb-4">
+                <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">
+                    <i class='bx bxs-add-to-queue'></i>
+                    Add Kegiatan
+                </button>
+            </div>
+            <div>
+                <div class="row">
+                    @foreach ($data as $item)
+                    <div class="card w-100 col mx-3 p-2">
+                        <div class="card-body">
+                            <h5 class="card-title">{{$item->title}}</h5>
+                            <img class="img-fluid d-flex mx-auto my-4" src="{{$item->thumnail}}" alt="Card image cap" />
+                            <p class="card-text">Status {{$item->status}}</p>
                         </div>
 
-                        <div class="mb-3">
-                            <label class="form-label" for="basic-default-message">Message</label>
-                            <textarea class="form-control @error('article') is-invalid @enderror" wire:model='article'
-                            placeholder="Leave a comment here" id="editor" style="height: 500px"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Save</button>
-                    </form>
+                            <div style="display: flex">
+                                <button type="button" class="btn btn-secondary mx-2">
+                                    <i class='bx bxs-detail' ></i>
+                                    Detail</button>
+                                <button type="button" class="btn btn-warning mx-2">
+                                    <i class='bx bxs-edit-alt' ></i>
+                                    Edit</button>
+                                <button type="button" class="btn btn-danger mx-2">
+                                    <i class='bx bxs-trash-alt' ></i>
+                                    Delete</button>
+                            </div>
+                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
+        @livewire('module.kegiatan.canvas-kegiatan')
     </div>
 </div>
+@script
 
+<script>
+    $wire.on('closeCanvas', () => {
+        const closeButton = document.getElementById('dimisCanvas');
+        if (closeButton) {
+            closeButton.click();
+        } else {
+            console.error('Button with ID "close-modal" not found');
+        }
+    })
+</script>
 
-@push('script')
-<script src="{{asset('sneat-1.0.0/js/skeditor.js')}}"></script>
-<script defer>
-            window.onload = function() {
-                ClassicEditor.create(document.getElementById('editor'), {
-                    ckfinder: {
-                        uploadUrl: '{{ route('image.upload') . '?_token=' . csrf_token() }}',
-                    }
-                })
-                .then(editor => {
-                    editor.model.document.on('change:data', () => {
-                        @this.set('article', editor.getData());
-                    });
-                    editor.keystrokes.set('Space', (key, stop) => {
-                        editor.execute('input', {
-                            text: '\u00a0'
-                        });
-                        stop();
-                    });
-                })
-                .catch(error => {
-                    console.error('CKEditor initialization error:', error);
-                });
-            }
-    </script>
-
-@endpush
-
+@endscript
