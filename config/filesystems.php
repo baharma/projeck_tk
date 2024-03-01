@@ -39,6 +39,8 @@ return [
         'images_local' => [
             'driver' => 'local',
             'root' => public_path('assets/images/'),
+            'root' => storage_path('app'),
+            'throw' => true,
         ],
 
         'public' => [
