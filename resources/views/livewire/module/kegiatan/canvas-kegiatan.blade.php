@@ -2,14 +2,14 @@
     <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel" wire:ignore
         style="height: 98%">
         <div class="offcanvas-header" wire:ignore>
-            <h5 id="offcanvasBottomLabel" class="offcanvas-title">Offcanvas Bottom</h5>
+            <h5 id="offcanvasBottomLabel" class="offcanvas-title">Form Kegiatan</h5>
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body" wire:ignore>
             <form wire:submit='save'>
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h5 class="mb-0">Form</h5>
-                    <small class="text-muted float-end">Default label</small>
+                    <small class="text-muted float-end">Kegiatan</small>
                 </div>
                 <div class="card-body">
 
@@ -38,11 +38,9 @@
                     <div class="mb-3" wire:ignore>
                         <label class="form-label" for="basic-default-message">Message</label>
                         <textarea class="form-control @error('article') is-invalid @enderror" wire:model='article'
-                            wire:ignore placeholder="Leave a comment here" id="editor"></textarea>
+                             placeholder="Leave a comment here" id="editor"></textarea>
                     </div>
-
-
-                    <button type="submit" class="btn btn-primary me-2">Continue</button>
+                    <button type="submit" class="btn btn-primary me-2" >Continue</button>
                     <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="offcanvas" id="dimisCanvas">
                         Cancel
                     </button>
