@@ -14,4 +14,9 @@ Route::middleware(['auth'])->prefix('admin')->group(function(){
     Route::prefix('categories')->group(function(){
         Route::get('/' , [CategoryController::class , 'index'])->name('category.list');
     });
+    Route::prefix('registrations')->group(function(){
+        Route::get('/' ,function(){
+            return view('modules.registration.registration-list');
+        })->name('registration.list');
+    });
 });
