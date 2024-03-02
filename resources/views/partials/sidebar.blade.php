@@ -114,10 +114,10 @@
             </a>
         </li>
 
-        <li class="menu-item {{ Route::currentRouteName() == 'registration.list' ? 'active' : ''; }}">
-            <a href="{{ route('registration.list') }}" class="menu-link">
+        <li class="menu-item {{ Route::currentRouteName() == 'company.form' ? 'active' : ''; }}">
+            <a href="{{ route('company.form') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div data-i18n="Analytics">Registrasi Siswa</div>
+                <div data-i18n="Analytics">Profil Sekolah</div>
             </a>
         </li>
 
