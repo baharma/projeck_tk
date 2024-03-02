@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
             EducationSeeder::class,
             ReligionSeeder::class,
+            CompanySeeder::class,
         ]);
         
     }
