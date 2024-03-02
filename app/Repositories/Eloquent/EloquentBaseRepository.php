@@ -36,4 +36,14 @@ abstract class EloquentBaseRepository implements BaseRepository
     {
         return $model->delete();
     }
+
+    public function first()
+    {
+        return $this->model->first();
+    }
+
+    public function all()
+    {
+        return $this->model->all();
+    }
 }

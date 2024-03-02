@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ProfileController;
 use App\Livewire\Module\Kegiatan\Kegiatan;
 use App\Livewire\Module\User\Users;
@@ -17,10 +18,14 @@ Route::middleware(['auth'])->prefix('admin')->group(function(){
     Route::prefix('kegiatan')->group(function(){
         Route::get('/',Kegiatan::class)->name('kegiatan');
     });
-
+    
     Route::prefix('registrations')->group(function(){
         Route::get('/' ,function(){
             return view('modules.registration.registration-list');
         })->name('registration.list');
+    });
+
+    Route::prefix('company')->group(function(){
+        Route::get('/', [CompanyController::class, 'index'])->name('company.form');
     });
 });

@@ -91,8 +91,8 @@ class RegistrationRepositoryTest extends TestCase
         $this->assertNotNull($registration->akta_image);
         $this->assertNotNull($registration->kk_image);
 
-        $this->assertTrue(Storage::disk('local')->exists($registration->kk_image));
-        $this->assertTrue(Storage::disk('local')->exists($registration->akta_image));
+        $this->assertTrue(Storage::disk('images_local')->exists($registration->kk_image));
+        $this->assertTrue(Storage::disk('images_local')->exists($registration->akta_image));
     }
 
     public function test_update_registration_upload(): void
@@ -116,7 +116,7 @@ class RegistrationRepositoryTest extends TestCase
         $this->assertEquals($data['name'], $registration->name);
         $this->assertEquals('valid', $registration->status);
 
-        $this->assertTrue(Storage::disk('local')->exists($registration->kk_image));
-        $this->assertTrue(Storage::disk('local')->exists($registration->akta_image));
+        $this->assertTrue(Storage::disk('images_local')->exists($registration->kk_image));
+        $this->assertTrue(Storage::disk('images_local')->exists($registration->akta_image));
     }
 }

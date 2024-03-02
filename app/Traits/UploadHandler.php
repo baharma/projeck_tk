@@ -10,9 +10,9 @@ trait UploadHandler {
         $filenameWithExt = $file->getClientOriginalName();
         $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
         $extension = $file->getClientOriginalExtension();
-        $filenameSimpan = $filename.'_'.time().'.'.$extension;
+        $filenameSimpan = time().'.'.$extension;
 
-        $path = $file->storeAs( $folder , $filenameSimpan , 'local');
+        $path = $file->storeAs( $folder , $filenameSimpan , 'images_local');
 
         return $path;
 
