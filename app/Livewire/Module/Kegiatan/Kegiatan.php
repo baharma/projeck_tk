@@ -12,6 +12,14 @@ use Livewire\Component;
 class Kegiatan extends Component
 {
     public $model;
+
+    protected $queryString = [
+        'search' => [
+            'except' => ''
+        ]
+    ];
+    public $search = '';
+
     public function mount(Post $post)
     {
         $this->model = $post;
@@ -19,9 +27,15 @@ class Kegiatan extends Component
 
     public function render()
     {
-
-        $kegiatan = Category::where('name','Kegiatan')->first();
-        $data = $kegiatan->posts;
+        $repo = app(PostRepository::class);
+        $kegiatan = Category::where('slug', 'kegiatan')->first();
+        dd($kegiatan);
+        $param = [
+            "search"=>$this->search,
+            "category_id"=>$kegiatan->id,
+            "per_page"=>5
+        ];
+        $data = $kegiatan ? $kegiatan->posts : [];
         return view('livewire.module.kegiatan.kegiatan',compact('data'));
     }
 

@@ -15,19 +15,33 @@ class CanvasKegiatan extends Component
 {
     use WithFileUploads;
 
-    public $model,$kegiatan,$update;
+    public $model,$kegiatan,$update,$idKegiatan;
     public $title, $article, $status,$thumnail;
 
     public function mount(Post $post)
     {
-
         $this->model = $post;
+
+        if($this->idKegiatan){
+            $data = $this->model->find($this->idKegiatan);
+            $this->fill([
+                'title'=>$data->title,
+                'article'=>$data->article,
+                'status'=>$data->status,
+                'thumnail'=>$data->thumnail,
+            ]);
+        }
         $this->kegiatan = Category::where('name','Kegiatan')->first();
     }
 
     public function save(){
         $repository = app(PostRepository::class);
-        $image = uploadImageHelper($this->thumnail,'Kegiatan');
+        if(is_string($this->thumnail)){
+            $image = $this->thumnail;
+        }else{
+            $image = uploadImageHelper($this->thumnail,'Kegiatan');
+        }
+
         $data = [
             'title'=>$this->title,
             'slug'=>Str::slug($this->title),
@@ -36,7 +50,16 @@ class CanvasKegiatan extends Component
             'status'=>$this->status,
             'created_by'=>Auth::user()->id
         ];
-        $repository->createPost($data, [$this->kegiatan]);
+
+        if($this->idKegiatan){
+            $post = $this->model->find($this->idKegiatan);
+            $repository->updatePost($post,$data,[$this->kegiatan]);
+        }else{
+            $repository->createPost($data, [$this->kegiatan]);
+        }
+
+
+        return to_route('kegiatan');
         $this->dispatch('closeCanvas');
         $this->dispatch('succes','Kegiatan Save !!');
         $this->dispatch('refreshKegiatan');

@@ -61,6 +61,7 @@
     <script src="{{asset('sneat-1.0.0/js/ckeditor.js')}}"></script>
     <link rel="stylesheet" href="{{asset('sneat-1.0.0/css/dropify.css')}}">
     <script src="{{asset('sneat-1.0.0/js/dropify.js')}}"> </script>
+
   </head>
 
   <body>
@@ -111,7 +112,7 @@
     <script src="{{asset('sneat-1.0.0/assets/vendor/libs/apex-charts/apexcharts.js')}}"></script>
 
     <!-- Main JS -->
-    <script src="{{asset('sneat-1.0.0/assets/js/main.js')}}"></script>
+
     <script src="{{asset('sneat-1.0.0/assets/vendor/libs/sweetalert2/dist/sweetalert2.all.min.js')}}"></script>
 
     <!-- Page JS -->
@@ -139,6 +140,7 @@
 
         });
     </script>
+           @vite(['resources/js/app.js'])
 <script src="
 https://cdn.jsdelivr.net/npm/sweetalert2@11.10.5/dist/sweetalert2.all.min.js
 "></script>
