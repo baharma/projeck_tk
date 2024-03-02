@@ -28,8 +28,8 @@ class Kegiatan extends Component
     public function render()
     {
         $repo = app(PostRepository::class);
-        $kegiatan = Category::where('slug', 'kegiatan')->first();
-        dd($kegiatan);
+        $kegiatan = Category::where('slug','kegiatan')->first();
+
         $param = [
             "search"=>$this->search,
             "category_id"=>$kegiatan->id,
