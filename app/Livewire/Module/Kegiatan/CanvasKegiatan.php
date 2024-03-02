@@ -9,14 +9,14 @@ use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use ilLuminate\Support\Str;
+use Livewire\Attributes\On;
+
 class CanvasKegiatan extends Component
 {
     use WithFileUploads;
 
     public $model,$kegiatan,$update;
     public $title, $article, $status,$thumnail;
-
-
 
     public function mount(Post $post)
     {
@@ -27,8 +27,6 @@ class CanvasKegiatan extends Component
 
     public function save(){
         $repository = app(PostRepository::class);
-
-
         $image = uploadImageHelper($this->thumnail,'Kegiatan');
         $data = [
             'title'=>$this->title,
@@ -39,6 +37,9 @@ class CanvasKegiatan extends Component
             'created_by'=>Auth::user()->id
         ];
         $repository->createPost($data, [$this->kegiatan]);
+        $this->dispatch('closeCanvas');
+        $this->dispatch('succes','Kegiatan Save !!');
+        $this->dispatch('refreshKegiatan');
         $this->clearSave();
     }
 
@@ -50,7 +51,18 @@ class CanvasKegiatan extends Component
             'thumnail'=>'',
             'update'=>''
         ]);
-        $this->dispatch('closeCanvas');
+    }
+
+    #[On('EditKegiatan')]
+    public function EditKegiatan($id){
+        $data = $this->model->find($id);
+        $this->fill([
+            'title'=>$data->title,
+            'article'=>$data->article,
+            'status'=>$data->status,
+            'thumnail'=>$data->thumnail,
+        ]);
+
     }
 
     public function render()

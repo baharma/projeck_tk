@@ -19,7 +19,9 @@
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
-
+    <link href="
+    https://cdn.jsdelivr.net/npm/sweetalert2@11.10.5/dist/sweetalert2.min.css
+    " rel="stylesheet">
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -107,7 +109,7 @@
 
 
     <script src="{{asset('sneat-1.0.0/assets/vendor/libs/apex-charts/apexcharts.js')}}"></script>
-    
+
     <!-- Main JS -->
     <script src="{{asset('sneat-1.0.0/assets/js/main.js')}}"></script>
     <script src="{{asset('sneat-1.0.0/assets/vendor/libs/sweetalert2/dist/sweetalert2.all.min.js')}}"></script>
@@ -137,7 +139,9 @@
 
         });
     </script>
-
+<script src="
+https://cdn.jsdelivr.net/npm/sweetalert2@11.10.5/dist/sweetalert2.all.min.js
+"></script>
     @stack('script')
   </body>
 </html>
