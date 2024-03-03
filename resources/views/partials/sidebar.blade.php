@@ -107,10 +107,18 @@
                 <div data-i18n="Analytics">Kategori</div>
             </a>
         </li>
-        <li class="menu-item">
-            <a href="{{route('kegiatan')}}" class="menu-link menu-toggle">
+
+        <li class="menu-item {{ Route::currentRouteName() == 'kegiatan' ? 'active' : ''; }}">
+            <a href="{{ route('kegiatan') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-box"></i>
                 <div data-i18n="User interface">Kegiatan</div>
+            </a>
+        </li>
+
+        <li class="menu-item {{ Route::currentRouteName() == 'user.dashboard' ? 'active' : ''; }}">
+            <a href="{{ route('user.dashboard') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-user"></i>
+                <div data-i18n="User interface">Pengguna</div>
             </a>
         </li>
 
