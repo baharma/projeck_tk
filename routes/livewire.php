@@ -4,6 +4,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ProfileController;
 use App\Livewire\Module\Kegiatan\CanvasKegiatan;
+use App\Http\Controllers\SocialMediaController;
 use App\Livewire\Module\Kegiatan\Kegiatan;
 use App\Livewire\Module\User\Users;
 use Illuminate\Support\Facades\Route;
@@ -29,5 +30,9 @@ Route::middleware(['auth'])->prefix('admin')->group(function(){
 
     Route::prefix('company')->group(function(){
         Route::get('/', [CompanyController::class, 'index'])->name('company.form');
+    });
+
+    Route::prefix('social-media')->group(function(){
+        Route::get('/', [SocialMediaController::class, 'index'])->name('social-media.form');
     });
 });
