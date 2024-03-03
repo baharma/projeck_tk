@@ -9,6 +9,25 @@ use Illuminate\Http\Request;
 
 class EloquentUserRepository extends EloquentBaseRepository implements UserRepository
 {
+    public function list(array $params)
+    {
+
+        $users = $this->model
+
+            ->when(isset($params['search']), function ($q) use ($params) {
+                $q->where('name', 'like', '%' . $params['search'] . '%')
+                    ->orWhere('email' , 'like' , '%'.$params['search'].'%');
+            })
+
+            ->orderByDesc('created_at');
+
+        if (isset($params['per_page'])) {
+            return $users->paginate($params['per_page']);
+        }
+
+        return $users->get();
+    }
+
     public function createUser(array $data)
     {
         $data['password'] = bcrypt($data['password']);
