@@ -35,7 +35,7 @@
                     </g>
                 </svg>
             </span>
-            <span class="app-brand-text demo menu-text fw-bolder ms-2">Sneat</span>
+            <span class="app-brand-text demo menu-text fw-bolder ms-2" style="text-transform: capitalize;">Kemala Asri</span>
         </a>
 
         <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
@@ -94,31 +94,72 @@
             </a>
         </li>
 
+        <li class="menu-item {{ Route::currentRouteName() == 'registration.list' ? 'active' : ''; }}">
+            <a href="{{ route('registration.list') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-file"></i>
+                <div data-i18n="Analytics">Registrasi Siswa</div>
+            </a>
+        </li>
+
         <li class="menu-item {{ Route::currentRouteName() == 'category.list' ? 'active' : ''; }}">
             <a href="{{ route('category.list') }}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <i class="menu-icon tf-icons bx bx-category"></i>
                 <div data-i18n="Analytics">Kategori</div>
             </a>
         </li>
         <li class="menu-item">
             <a href="{{route('kegiatan')}}" class="menu-link menu-toggle">
-              <i class="menu-icon tf-icons bx bx-box"></i>
-              <div data-i18n="User interface">Kegiatan</div>
-            </a>
-          </li>
-
-        <li class="menu-item {{ Route::currentRouteName() == 'registration.list' ? 'active' : ''; }}">
-            <a href="{{ route('registration.list') }}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div data-i18n="Analytics">Registrasi Siswa</div>
+                <i class="menu-icon tf-icons bx bx-box"></i>
+                <div data-i18n="User interface">Kegiatan</div>
             </a>
         </li>
 
-        <li class="menu-item {{ Route::currentRouteName() == 'company.form' ? 'active' : ''; }}">
-            <a href="{{ route('company.form') }}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div data-i18n="Analytics">Profil Sekolah</div>
+        <li class="menu-item {{ in_array( Route::currentRouteName() , ['company.form' , 'social-media.form']) ? 'active open' : '' }}">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-cog"></i>
+                <div data-i18n="Layouts">Pengaturan</div>
             </a>
+
+            <ul class="menu-sub">
+                <li class="menu-item {{ Route::currentRouteName() == 'company.form' ? 'active' : ''; }}">
+                    <a href="{{ route('company.form') }}" class="menu-link">
+                        <!-- <i class="menu-icon tf-icons bx bx-home-circle"></i> -->
+                        <div data-i18n="Analytics">Profil Sekolah</div>
+                    </a>
+                </li>
+
+                <li class="menu-item {{ Route::currentRouteName() == 'social-media.form' ? 'active' : ''; }}">
+                    <a href="{{ route('social-media.form') }}" class="menu-link">
+                        <!-- <i class="menu-icon tf-icons bx bx-home-circle"></i> -->
+                        <div data-i18n="Analytics">Sosial Media</div>
+                    </a>
+                </li>
+                <!-- <li class="menu-item">
+                    <a href="layouts-without-menu.html" class="menu-link">
+                        <div data-i18n="Without menu">Without menu</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="layouts-without-navbar.html" class="menu-link">
+                        <div data-i18n="Without navbar">Without navbar</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="layouts-container.html" class="menu-link">
+                        <div data-i18n="Container">Container</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="layouts-fluid.html" class="menu-link">
+                        <div data-i18n="Fluid">Fluid</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="layouts-blank.html" class="menu-link">
+                        <div data-i18n="Blank">Blank</div>
+                    </a>
+                </li> -->
+            </ul>
         </li>
 
     </ul>

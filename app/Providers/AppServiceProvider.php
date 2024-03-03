@@ -7,6 +7,7 @@ use App\Models\Company;
 use App\Models\ParentStudent;
 use App\Models\Post;
 use App\Models\RegistrationStudent;
+use App\Models\SocialMedia;
 use App\Models\User;
 use App\Repositories\CategoryRepository;
 use App\Repositories\CompanyRepository;
@@ -15,10 +16,12 @@ use App\Repositories\Eloquent\EloquentCompanyRepository;
 use App\Repositories\Eloquent\EloquentParentStudentRepository;
 use App\Repositories\Eloquent\EloquentPostRepository;
 use App\Repositories\Eloquent\EloquentRegistrationStudentRepository;
+use App\Repositories\Eloquent\EloquentSocialMediaRepository;
 use App\Repositories\Eloquent\EloquentUserRepository;
 use App\Repositories\ParentStudentRepository;
 use App\Repositories\PostRepository;
 use App\Repositories\RegistrationStudentRepository;
+use App\Repositories\SocialMediaRepository;
 use App\Repositories\UserRepository;
 use Illuminate\Support\ServiceProvider;
 
@@ -67,6 +70,13 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(CompanyRepository::class, function () {
 
             $repository = new EloquentCompanyRepository(new Company());
+
+            return $repository;
+        });
+
+        $this->app->bind(SocialMediaRepository::class, function () {
+
+            $repository = new EloquentSocialMediaRepository(new SocialMedia());
 
             return $repository;
         });

@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
             EducationSeeder::class,
             ReligionSeeder::class,
             CompanySeeder::class,
+            SosialMediaSeeder::class,
         ]);
         
     }

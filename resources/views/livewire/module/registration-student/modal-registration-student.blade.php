@@ -226,7 +226,7 @@
                                 <div class="input-group">
                                     <input wire:model.live='akta_image' class="form-control" type="file" id="akta_image">
                                     @if(is_string($akta_image))
-                                    <a href="{{ asset('assets/images/.'$akta_image) }}" class="btn btn-success"><i class="bx bx-image-alt"></i> Lihat</a>
+                                    <a href="{{ asset('assets/images/'.$akta_image) }}" class="btn btn-success"><i class="bx bx-image-alt"></i> Lihat</a>
                                     @endif
                                 </div>
                             </div>
@@ -237,7 +237,7 @@
                                 <div class="input-group">
                                     <input wire:model.live='kk_image' class="form-control" type="file" id="kk_image">
                                     @if(is_string($kk_image))
-                                    <a href="{{ asset('assets/images/.'$kk_image) }}" class="btn btn-success"><i class="bx bx-image-alt"></i> Lihat</a>
+                                    <a href="{{ asset('assets/images/'. $kk_image) }}" class="btn btn-success"><i class="bx bx-image-alt"></i> Lihat</a>
                                     @endif
                                 </div>
                             </div>
