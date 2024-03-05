@@ -122,6 +122,13 @@
             </a>
         </li>
 
+        <li class="menu-item {{ Route::currentRouteName() == 'gallery.list' ? 'active' : ''; }}">
+            <a href="{{ route('gallery.list') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-image-alt"></i>
+                <div data-i18n="Analytics">Galeri</div>
+            </a>
+        </li>
+
         <li class="menu-item {{ in_array( Route::currentRouteName() , ['company.form' , 'social-media.form']) ? 'active open' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-cog"></i>
