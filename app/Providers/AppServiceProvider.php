@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Category;
 use App\Models\Company;
+use App\Models\Gallery;
 use App\Models\ParentStudent;
 use App\Models\Post;
 use App\Models\RegistrationStudent;
@@ -13,11 +14,13 @@ use App\Repositories\CategoryRepository;
 use App\Repositories\CompanyRepository;
 use App\Repositories\Eloquent\EloquentCategoryRepository;
 use App\Repositories\Eloquent\EloquentCompanyRepository;
+use App\Repositories\Eloquent\EloquentGalleryRepository;
 use App\Repositories\Eloquent\EloquentParentStudentRepository;
 use App\Repositories\Eloquent\EloquentPostRepository;
 use App\Repositories\Eloquent\EloquentRegistrationStudentRepository;
 use App\Repositories\Eloquent\EloquentSocialMediaRepository;
 use App\Repositories\Eloquent\EloquentUserRepository;
+use App\Repositories\GalleryRepository;
 use App\Repositories\ParentStudentRepository;
 use App\Repositories\PostRepository;
 use App\Repositories\RegistrationStudentRepository;
@@ -77,6 +80,13 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(SocialMediaRepository::class, function () {
 
             $repository = new EloquentSocialMediaRepository(new SocialMedia());
+
+            return $repository;
+        });
+
+        $this->app->bind(GalleryRepository::class, function () {
+
+            $repository = new EloquentGalleryRepository(new Gallery());
 
             return $repository;
         });

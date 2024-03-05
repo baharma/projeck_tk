@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\ProfileController;
 use App\Livewire\Module\Kegiatan\CanvasKegiatan;
 use App\Http\Controllers\SocialMediaController;
@@ -34,5 +35,9 @@ Route::middleware(['auth'])->prefix('admin')->group(function(){
 
     Route::prefix('social-media')->group(function(){
         Route::get('/', [SocialMediaController::class, 'index'])->name('social-media.form');
+    });
+
+    Route::prefix('gallery')->group(function(){
+        Route::get('/', [GalleryController::class, 'index'])->name('gallery.list');
     });
 });
