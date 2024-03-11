@@ -20,7 +20,6 @@ class Post extends Model
         parent::boot();
 
         static::creating(function ($post) {
-
             $post->slug = Str::slug($post->title);
             $post->created_by = Auth::user()->id;
         });
@@ -34,5 +33,10 @@ class Post extends Model
     public function author()
     {
         return $this->belongsTo(User::class , 'user_id');
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
     }
 }

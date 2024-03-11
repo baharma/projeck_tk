@@ -16,19 +16,19 @@ class CategorySeeder extends Seeder
         $data = [
             [
                 'name' => 'Kegiatan',
-                'slug' => null
+                'slug' => 'kegiatan'
             ],
             [
                 'name' => 'Prestasi',
-                'slug' => null
+                'slug' => 'prestasi'
             ],
             [
                 'name' => 'Fasilitas',
-                'slug' => null
+                'slug' => 'fasilitas'
             ],
             [
                 'name' => 'Pengumuman',
-                'slug' => null
+                'slug' => 'pengumuman'
             ],
         ];
 
