@@ -3,6 +3,7 @@
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\Post\PostController;
 use App\Http\Controllers\ProfileController;
 use App\Livewire\Module\Kegiatan\CanvasKegiatan;
 use App\Http\Controllers\SocialMediaController;
@@ -20,9 +21,8 @@ Route::middleware(['auth'])->prefix('admin')->group(function(){
     });
     Route::prefix('kegiatan')->group(function(){
         Route::get('/',Kegiatan::class)->name('kegiatan');
-        Route::get('/form/{idKegiatan?}',CanvasKegiatan::class)->name('form.kegiatan');
     });
-    
+
     Route::prefix('registrations')->group(function(){
         Route::get('/' ,function(){
             return view('modules.registration.registration-list');
@@ -39,5 +39,11 @@ Route::middleware(['auth'])->prefix('admin')->group(function(){
 
     Route::prefix('gallery')->group(function(){
         Route::get('/', [GalleryController::class, 'index'])->name('gallery.list');
+    });
+
+
+    Route::controller(PostController::class)->group(function(){
+        Route::get('/post/form/{category}','PostForm')->name('post-form');
+        Route::get('/post/edit-form/{post}','PostEditForm')->name('post-edit.form');
     });
 });

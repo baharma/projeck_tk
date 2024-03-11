@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\HelperController;
+use App\Http\Controllers\Post\PostController;
 use App\Http\Controllers\ProfileController;
+use App\Livewire\Module\Kegiatan\CanvasKegiatan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,6 +33,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+
+
+    // Route::get('/form/{idKegiatan?}',CanvasKegiatan::class)->name('form.kegiatan');
+
+
 });
 
 Route::post('image-upload/ckeditor', [HelperController::class, 'ckeditorUploadImage'])->name('image.upload');
