@@ -3,7 +3,7 @@
 @section('content')
 
 
-@livewire('module.kegiatan.canvas-kegiatan')
+@livewire('module.kegiatan.canvas-kegiatan',['category'=>$category->slug ?? $post->categories->first()->slug,'idKegiatan'=>$post->slug ?? null])
 
 
 @endsection

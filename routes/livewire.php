@@ -19,8 +19,8 @@ Route::middleware(['auth'])->prefix('admin')->group(function(){
     Route::prefix('categories')->group(function(){
         Route::get('/' , [CategoryController::class , 'index'])->name('category.list');
     });
-    Route::prefix('kegiatan')->group(function(){
-        Route::get('/',Kegiatan::class)->name('kegiatan');
+    Route::prefix('post')->group(function(){
+        Route::get('/{category}',Kegiatan::class)->name('post');
     });
 
     Route::prefix('registrations')->group(function(){

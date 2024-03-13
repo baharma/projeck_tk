@@ -15,7 +15,7 @@ class CanvasKegiatan extends Component
 {
     use WithFileUploads;
 
-    public $model,$kegiatan,$update,$idKegiatan;
+    public $model,$kegiatan,$update,$idKegiatan, $category;
     public $title, $article, $status,$thumnail;
 
     public function mount(Post $post)
@@ -23,7 +23,8 @@ class CanvasKegiatan extends Component
         $this->model = $post;
 
         if($this->idKegiatan){
-            $data = $this->model->find($this->idKegiatan);
+
+            $data = $this->model->where('slug',$this->idKegiatan)->first();
             $this->fill([
                 'title'=>$data->title,
                 'article'=>$data->article,
@@ -31,7 +32,7 @@ class CanvasKegiatan extends Component
                 'thumnail'=>$data->thumnail,
             ]);
         }
-        $this->kegiatan = Category::where('name','Kegiatan')->first();
+        $this->kegiatan = Category::where('name',$this->category)->first();
     }
 
     public function save(){
@@ -44,25 +45,22 @@ class CanvasKegiatan extends Component
 
         $data = [
             'title'=>$this->title,
-            'slug'=>Str::slug($this->title),
             'thumnail'=>$image,
             'article'=>$this->article,
             'status'=>$this->status,
-            'created_by'=>Auth::user()->id
         ];
 
         if($this->idKegiatan){
-            $post = $this->model->find($this->idKegiatan);
+            $post = $this->model->where('slug',$this->idKegiatan)->first();
             $repository->updatePost($post,$data,[$this->kegiatan]);
         }else{
             $repository->createPost($data, [$this->kegiatan]);
         }
-
-
-        return to_route('kegiatan');
         $this->dispatch('closeCanvas');
         $this->dispatch('succes','Kegiatan Save !!');
         $this->dispatch('refreshKegiatan');
+        return to_route('post',$this->category);
+
         $this->clearSave();
     }
 

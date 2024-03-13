@@ -11,7 +11,7 @@ use Livewire\Component;
 
 class Kegiatan extends Component
 {
-    public $model;
+    public $model, $category;
 
     protected $queryString = [
         'search' => [
@@ -22,13 +22,14 @@ class Kegiatan extends Component
 
     public function mount(Post $post)
     {
+
         $this->model = $post;
     }
 
     public function render()
     {
         $repo = app(PostRepository::class);
-        $kegiatan = Category::where('slug','kegiatan')->first();
+        $kegiatan = Category::where('slug',$this->category)->first();
 
         $param = [
             "search"=>$this->search,
@@ -40,9 +41,9 @@ class Kegiatan extends Component
     }
 
     #[On('deleteThis')]
-    public function deleteThis($id){
+    public function deleteThis($slug){
         $repo = app(PostRepository::class);
-        $repo->deletePost($this->model->find($id));
+        $repo->deletePost($this->model->where('slug',$slug)->first());
         $this->render();
     }
 
@@ -51,6 +52,7 @@ class Kegiatan extends Component
     public function refreshKegiatan(){
         $this->render();
     }
+
     public function edit($id){
         $this->dispatch('EditKegiatan',$id);
     }

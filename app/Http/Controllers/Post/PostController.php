@@ -27,5 +27,6 @@ class PostController extends Controller
 
     public function PostEditForm(Post $post){
 
+        return view('modules.post.form-post',compact('post'));
     }
 }

@@ -15,7 +15,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+    @livewireStyles
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
@@ -70,7 +70,7 @@
       <div class="layout-container">
         <!-- Menu -->
 
-        @include('partials.sidebar')
+        @livewire('component.sider-bar')
         <!-- / Menu -->
 
         <!-- Layout container -->
@@ -130,6 +130,7 @@
           })
       })
     </script>
+    @livewireScripts
     <script>
         $('.dropify').dropify({
             messages: {
