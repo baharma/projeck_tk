@@ -26,7 +26,7 @@ class CanvasKegiatan extends Component
         if($this->idKegiatan){
 
             $data = $this->model->with(['categories'])->where('slug',$this->idKegiatan)->first();
-            $this->category = $data->categories()->first();
+            $this->category = $data->categories()->first()->slug;
 
             $this->fill([
                 'title'=>$data->title,
@@ -35,7 +35,7 @@ class CanvasKegiatan extends Component
                 'thumnail'=>$data->thumnail,
             ]);
         }
-        $this->kegiatan = Category::where('slug',$this->category->slug)->first();
+        $this->kegiatan = Category::where('slug',$this->category)->first();
     }
 
     public function save(){
