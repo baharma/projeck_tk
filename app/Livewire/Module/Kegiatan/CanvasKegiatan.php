@@ -4,6 +4,7 @@ namespace App\Livewire\Module\Kegiatan;
 
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\PostCategory;
 use App\Repositories\PostRepository;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
@@ -24,7 +25,9 @@ class CanvasKegiatan extends Component
 
         if($this->idKegiatan){
 
-            $data = $this->model->where('slug',$this->idKegiatan)->first();
+            $data = $this->model->with(['categories'])->where('slug',$this->idKegiatan)->first();
+            $this->category = $data->categories()->first();
+
             $this->fill([
                 'title'=>$data->title,
                 'article'=>$data->article,
@@ -32,7 +35,7 @@ class CanvasKegiatan extends Component
                 'thumnail'=>$data->thumnail,
             ]);
         }
-        $this->kegiatan = Category::where('name',$this->category)->first();
+        $this->kegiatan = Category::where('slug',$this->category->slug)->first();
     }
 
     public function save(){

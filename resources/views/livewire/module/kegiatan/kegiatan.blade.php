@@ -10,7 +10,7 @@
             <div>
                 <div class="row">
                     @foreach ($data as $item)
-                    <div class="card col-lg-3 mx-3 p-2">
+                    <div class="card col-lg-3 mx-3 p-2 mb-3">
                         <div class="card-body">
                             <h5 class="card-title">{{$item->title}}</h5>
                             <img class="img-fluid d-flex mx-auto my-4" src="{{$item->thumnail}}" alt="Card image cap" />

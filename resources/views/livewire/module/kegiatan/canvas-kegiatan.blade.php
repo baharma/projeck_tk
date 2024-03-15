@@ -22,9 +22,9 @@
         <div class="menu-inner p-2">
             <h5 id="">Form Post</h5>
 
-            <label class="form-label" for="basic-default-fullname">Nama Kegiatan</label>
+            <label class="form-label" for="basic-default-fullname">Nama Postiongan</label>
             <input type="text" class="form-control mb-3" id="basic-default-fullname" wire:model='title'
-            placeholder="Title Kegiatan" />
+            placeholder="Title Postiongan" />
 
             <label for="exampleFormControlSelect1" class="form-label">Status</label>
             <select class="form-select mb-3" id="exampleFormControlSelect1" wire:model="status"
@@ -58,11 +58,30 @@
     <div class="content-wrapper" style="margin-left: 400px; background-color: azure">
         <div style="" wire:ignore>
             <textarea class="form-control @error('article') is-invalid @enderror" wire:model='article'
-                placeholder="Leave a comment here" id="editor"></textarea>
+                placeholder="" id="editor"></textarea>
         </div>
 
     </div>
-
+<!-- Modal -->
+<div class="modal fade" id="modalToggle" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
     </form>
 
 </div>

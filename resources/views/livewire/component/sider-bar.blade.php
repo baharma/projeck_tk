@@ -75,7 +75,7 @@
             <li class="menu-item {{ in_array( Route::currentRouteName() , ['company.form' , 'social-media.form']) ? 'active open' : '' }}">
                 <a href="javascript:void(0);" class="menu-link menu-toggle">
                     <i class="menu-icon tf-icons bx bx-cog"></i>
-                    <div data-i18n="Layouts">Post</div>
+                    <div data-i18n="Layouts">Postingan</div>
                 </a>
                 <ul class="menu-sub">
 
@@ -83,7 +83,7 @@
                     <li class="menu-item {{ Route::currentRouteName() == 'company.form' ? 'active' : ''; }}">
                         <a href="{{ route('post',$item->slug) }}" class="menu-link">
                             <!-- <i class="menu-icon tf-icons bx bx-home-circle"></i> -->
-                            <div data-i18n="Analytics">Post {{$item->name}}</div>
+                            <div data-i18n="Analytics">Postingan {{$item->name}}</div>
                         </a>
                     </li>
                     @endforeach
