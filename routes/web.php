@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FrontEnd\FrontEndController;
 use App\Http\Controllers\HelperController;
 use App\Http\Controllers\Post\PostController;
 use App\Http\Controllers\ProfileController;
@@ -39,6 +40,11 @@ Route::middleware('auth')->group(function () {
     // Route::get('/form/{idKegiatan?}',CanvasKegiatan::class)->name('form.kegiatan');
 
 
+});
+
+
+Route::controller(FrontEndController::class)->group(function(){
+    Route::get('/',)
 });
 
 Route::post('image-upload/ckeditor', [HelperController::class, 'ckeditorUploadImage'])->name('image.upload');
