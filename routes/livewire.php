@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::middleware(['auth'])->prefix('admin')->group(function(){
+
     Route::get('/user',Users::class)->name('user.dashboard');
 
     Route::prefix('categories')->group(function(){
