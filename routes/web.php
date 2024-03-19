@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', function () {
+Route::get('/admin', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -44,7 +44,7 @@ Route::middleware('auth')->group(function () {
 
 
 Route::controller(FrontEndController::class)->group(function(){
-    Route::get('/',)
+    Route::get('/','index')->name('home');
 });
 
 Route::post('image-upload/ckeditor', [HelperController::class, 'ckeditorUploadImage'])->name('image.upload');
