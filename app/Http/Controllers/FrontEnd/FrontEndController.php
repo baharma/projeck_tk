@@ -14,6 +14,6 @@ class FrontEndController extends Controller
 
 
     public function index(){
-        return view('layouts.app-front-end');
+        return view('pages.home');
     }
 }
