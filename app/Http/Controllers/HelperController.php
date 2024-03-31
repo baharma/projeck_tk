@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Traits\UploadHandler;
 use Illuminate\Http\Request;
 
 class HelperController extends Controller
 {
+    use UploadHandler;
+
     public function __construct()
     {
 
@@ -14,7 +17,7 @@ class HelperController extends Controller
     public function ckeditorUploadImage(Request $request){
         try {
         if ($request->hasFile('upload')) {
-            $filename = uploadImageHelper($request->file('upload'),'CkEditor');
+            $filename = $this->uploadImageHelper($request->file('upload'),'CkEditor');
             return response()->json(['fileName' => $filename, 'uploaded'=> 1, 'url' => asset($filename)]);
         }
 

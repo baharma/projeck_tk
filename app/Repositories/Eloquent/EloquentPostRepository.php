@@ -63,4 +63,9 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
         return $posts->get();
     }
 
+    public function findSlug($slug)  
+    {
+        return $this->model->where('slug' , $slug)->first();
+    }
+
 }

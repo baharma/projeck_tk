@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Post;
 use App\Models\PostCategory;
 use App\Repositories\PostRepository;
+use App\Traits\UploadHandler;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -14,7 +15,7 @@ use Livewire\Attributes\On;
 
 class CanvasKegiatan extends Component
 {
-    use WithFileUploads;
+    use WithFileUploads , UploadHandler;
 
     public $model,$kegiatan,$update,$idKegiatan, $category;
     public $title, $article, $status,$thumnail;
@@ -43,7 +44,7 @@ class CanvasKegiatan extends Component
         if(is_string($this->thumnail)){
             $image = $this->thumnail;
         }else{
-            $image = uploadImageHelper($this->thumnail,'Kegiatan');
+            $image = $this->uploadImageHelper($this->thumnail,'Kegiatan');
         }
 
         $data = [
