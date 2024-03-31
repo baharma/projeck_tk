@@ -12,5 +12,7 @@ interface PostRepository {
     public function deletePost(Post $post);
 
     public function list(array $params);
+
+    public function findSlug($slug);
     
 }

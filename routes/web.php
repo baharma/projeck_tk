@@ -45,6 +45,13 @@ Route::middleware('auth')->group(function () {
 
 Route::controller(FrontEndController::class)->group(function(){
     Route::get('/','index')->name('home');
+    Route::get('/kegiatan-akademik','akademik')->name('kegiatan-akademik');
+    Route::get('/prestasi','prestasi')->name('prestasi');
+    Route::get('/fasilitas','fasilitas')->name('fasilitas');
+    Route::get('/pengumuman','pengumuman')->name('pengumuman');
+    Route::get('/profile','profile')->name('profile');
+    Route::get('/pendaftaran', 'pendaftaran')->name('pendaftaran');
+    Route::get('article/{slug}','article')->name('article');
 });
 
 Route::post('image-upload/ckeditor', [HelperController::class, 'ckeditorUploadImage'])->name('image.upload');
