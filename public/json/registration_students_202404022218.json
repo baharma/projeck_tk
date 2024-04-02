@@ -1,0 +1,21 @@
+{
+"registration_students": [
+	{
+		"id" : 1,
+		"name" : "aditya",
+		"gender" : "laki_laki",
+		"date_of_birth" : "2024-04-02",
+		"place_of_birth" : "denpasar",
+		"religion_id" : 4,
+		"address" : "jl.pulau manggis no 9 ",
+		"phone" : "0812373121",
+		"number_of_siblings" : 1,
+		"height" : 120,
+		"weight" : 40,
+		"kk_image" : "dokumen\/1712005626.pdf",
+		"akta_image" : "dokumen\/1712005626.pdf",
+		"status" : "pending",
+		"created_at" : "2024-04-01 21:07:06",
+		"updated_at" : "2024-04-01 21:07:06"
+	}
+]}

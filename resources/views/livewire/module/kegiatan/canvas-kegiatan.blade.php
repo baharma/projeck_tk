@@ -1,14 +1,12 @@
 @push('style')
 <link rel="stylesheet" href="{{asset('sneat-1.0.0/css/editor-form-post.css')}}">
-
-
 @endpush
 
 <div>
     <form wire:submit='save'>
     <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme" style="width: 400px">
         <div class="app-brand demo">
-            <a href="index.html" class="app-brand-link">
+            <a href="{{route('post',$category)}}" class="app-brand-link">
                 <span class="app-brand-logo demo">
                     <i class='bx bx-arrow-back'></i>
                 </span>
@@ -50,34 +48,33 @@
             </div>
 
         </div>
-        <button type="submit" class="btn btn-success rounded-0">
+        <button type="submit" class="btn btn-success rounded-0"  wire:loading.attr="disabled" :disabled="$isSubmitting" >
             <i class='bx bx-save' ></i>
             Save
+            <span wire:loading.remove>Update</span>
+            <span wire:loading>Loading...</span>
+            <span wire:loading>Loading...</span>
         </button>
+
     </aside>
     <div class="content-wrapper" style="margin-left: 400px; background-color: azure">
         <div style="" wire:ignore>
             <textarea class="form-control @error('article') is-invalid @enderror" wire:model='article'
                 placeholder="" id="editor"></textarea>
         </div>
-
     </div>
-<!-- Modal -->
 <div class="modal fade" id="modalToggle" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+          <h5 class="modal-title" id="exampleModalLabel">Image Thumnail</h5>
         </div>
         <div class="modal-body">
-          ...
+          <img src="{{$thumnail}}" alt="">
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-secondary"   data-bs-dismiss="modal"
+          aria-label="Close">Close</button>
         </div>
       </div>
     </div>
