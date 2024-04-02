@@ -22,7 +22,7 @@ class Post extends Model
 
         static::creating(function ($post) {
             $post->slug = Str::slug($post->title);
-            $post->created_by = Auth::user()->id;
+            $post->created_by = Auth::user()->id ?? 1;
         });
     }
 
