@@ -15,10 +15,19 @@
                         PERJALANAN KAMI
                     </h1>
                     <p class="text-center text-lg-start">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam facilisis, libero at venenatis euismod, urna justo dictum massa, a ultrices magna urna sit amet elit. Sed vehicula lacus ut libero ultricies, ac consectetur sapien cursus. Suspendisse potenti. Proin euismod ipsum in lectus tincidunt, in fermentum lacus aliquam.
+                        PAUD TK Kemala Asri terletak di desa Poh Bergaga, Kecamatan Tampaksiring, Kabupaten Gianyar, Bali. Sekolah ini didirikan pada tahun 2014 oleh sekelompok pendidik yang berkomitmen untuk meningkatkan kualitas pendidikan di wilayah tersebut. Sekolah ini memiliki visi dan misi yang jelas, yaitu untuk menjadi lembaga pendidikan yang unggul dan bertanggung jawab dalam membantu anak-anak berkembang optimally.
                     </p>
                     <p class="text-center text-lg-start">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam facilisis, libero at venenatis euismod, urna justo dictum massa, a ultrices magna urna sit amet elit. Sed vehicula lacus ut libero ultricies, ac consectetur sapien cursus. Suspendisse potenti. Proin euismod ipsum in lectus tincidunt, in fermentum lacus aliquam.
+                        Sebelum pandemi COVID-19 pada tahun 2020, PAUD TK Kemala Asri memiliki siswa hingga 40 orang. Namun, pada tahun 2023, sekolah ini mengalami penurunan jumlah siswa hingga 11 siswa yang terdaftar. Penurunan ini disebabkan oleh kurangnya informasi yang diterima oleh orang tua wali mengenai pembukaan penerimaan siswa baru PAUD TK Kemala Asri. Hal ini menjadi tantangan besar bagi sekolah, karena dengan jumlah siswa yang lebih sedikit, biaya operasional sekolah menjadi lebih mahal.
+                    </p>
+                    <p class="text-center text-lg-start">
+                        Untuk mengatasi tantangan ini, PAUD TK Kemala Asri mengambil beberapa tindakan. Pertama, sekolah mulai mengembangkan program pendidikan non formal, seperti kelas bermain dan kelas seni. Hal ini bertujuan untuk menarik lebih banyak anak-anak untuk mendaftar di sekolah. Selain itu, sekolah juga mulai menggunakan media sosial untuk menginformasikan pembukaan penerimaan siswa baru. Hal ini bertujuan untuk mencapai lebih banyak orang tua wali, terutama yang tinggal di luar wilayah.
+                    </p>
+                    <p class="text-center text-lg-start">
+                        PAUD TK Kemala Asri juga mulai mengambil tindakan untuk meningkatkan kualitas pendidikan yang diberikan. Sekolah mulai mengimplementasikan program pembelajaran yang lebih interaktif dan menarik, serta mulai menggunakan teknologi informasi dan komunikasi (TIK) dalam pembelajaran. Hal ini bertujuan untuk membuat pembelajaran lebih menyenangkan dan efektif. Selain itu, sekolah juga mulai mengembangkan kerjasama dengan beberapa lembaga pendidikan lain, sehingga dapat memperoleh bantuan dan saran dari para ahli.
+                    </p>
+                    <p class="text-center text-lg-start">
+                        Sejauh ini, tindakan-tindakan ini telah menunjukkan hasil yang baik. Jumlah siswa di sekolah telah meningkat, dan kualitas pendidikan yang diberikan telah meningkat. Namun, sekolah masih menghadapi tantangan besar, yaitu mengatasi kurangnya informasi yang diterima oleh orang tua wali. Untuk mengatasi tantangan ini, sekolah akan terus mengembangkan strategi informasi yang lebih efektif, serta akan terus mengambil tindakan untuk meningkatkan kualitas pendidikan yang diberikan.
                     </p>
                 </div>
             </div>
