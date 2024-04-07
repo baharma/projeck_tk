@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\FrontEnd;
 
 use App\Http\Controllers\Controller;
+use App\Models\Company;
 use App\Models\Post;
 use App\Repositories\PostRepository;
 use App\Traits\DateHandler;
@@ -45,7 +46,8 @@ class FrontEndController extends Controller
         return view('pages.pendaftaran');
     }
     public function profile(){
-        return view('pages.profile');
+        $company  = Company::first();
+        return view('pages.profile' , compact('company'));
     }
     public function article($slug){
         

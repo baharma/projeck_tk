@@ -3,14 +3,14 @@
         <div class="row">
             <div class="col-lg-5 mb-5 mb-lg-auto">
                 <div class="mb-3">
-                    <img src="{{ asset('asset-kemala/image/logo.png') }}" alt="">
+                    <img src="{{ asset('assets/images/' . $company->logo) }}" alt="">
                 </div>
                 <p>
-                    Br. Tarukan Pejeng Kaja, Kec. Tampaksiring, Kab. Gianyar, Pejeng Kaja, Kec. Tampaksiring, Kab. Gianyar Prov. Bali
+                    {{ $company->address }}
                 </p>
                 <ul class="d-flex m-0 p-0 gap-2" style="list-style: none;">
-                    <li><span class="iconify" data-icon="ic:baseline-facebook" style="color: #F94892; font-size: 36px;"></span></li>
-                    <li><span class="iconify" data-icon="ri:instagram-fill" style="color: #F94892; font-size: 36px;"></span></li>
+                    <li><a href="{{ $social_media->where('slug' , 'facebook')->first()->url }}"><span class="iconify" data-icon="ic:baseline-facebook" style="color: #F94892; font-size: 36px;"></span></a></li>
+                    <li><a href="{{ $social_media->where('slug' , 'instagram')->first()->url }}"><span class="iconify" data-icon="ri:instagram-fill" style="color: #F94892; font-size: 36px;"></span></a></li>
                 </ul>
             </div>
             <div class="col-lg-7  mb-5 mb-lg-auto">
@@ -23,9 +23,9 @@
                         <h5 class="poppins-bold uppercase mb-3">Kontak</h5>
                         <ul class="m-0 p-0" style="list-style: none;">
                             <li>
-                                <a target="_blank" href="https://wa.me/+6287862040180" class="text-decoration-none text-dark">
+                                <a target="_blank" href="{{ $social_media->where('slug' , 'whatsapp')->first()->url }}" class="text-decoration-none text-dark">
                                     <span class="iconify me-2" data-icon="ri:whatsapp-fill" style="font-size: 24px; color:#F94892"></span>
-                                    087862040180 (Dewayu)
+                                    {{ $social_media->where('slug' , 'whatsapp')->first()->name }}
                                 </a>
                             </li>
                         </ul>

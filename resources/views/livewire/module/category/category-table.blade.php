@@ -36,10 +36,12 @@
                                 <i class="bx bx-edit"></i>
                                 <span>Edit</span>
                             </button>
+                            @if(!in_array($category->id, [1,2,3,4]))
                             <button type="button" class="btn btn-danger btn-sm" wire:click="deleteConfirm({{ $category->id }})">
                                 <i class="bx bx-trash"></i>
                                 <span>Hapus</span>
                             </button>
+                            @endif
                         </td>
                     </tr>
                     @endforeach
@@ -66,7 +68,7 @@
         }).then((result) => {
             /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {
-                $wire.dispatch(event.detail[0].listener , [event.detail[0].param]);
+                $wire.dispatch(event.detail[0].listener, [event.detail[0].param]);
             }
         });
     });

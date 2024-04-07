@@ -83,7 +83,7 @@
 
 <section style="padding: 90px 0 90px 0;">
     <div class="container">
-        <h2 class="poppins-bold uppercase text-center" style="margin-bottom: 56px;">Kegiatan Akademik</h2>
+        <h2 class="poppins-bold uppercase text-center" style="margin-bottom: 56px;">Berita Terkini</h2>
 
         <div class="row mb-5">
             @foreach($akademik_article as $akademik)

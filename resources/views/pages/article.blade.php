@@ -16,7 +16,7 @@
                     <img class="image-thumbnail-article" src="{{ asset($post->thumnail) }}" alt="">
                 </div>
 
-                <div class="text-break">
+                <div class="text-break post">
                     {!! $post->article !!}
                 </div>
             </div>
@@ -25,9 +25,9 @@
                 <div class="row">
                     @foreach($another_posts as $another)
                     <div class="col-lg-12 mb-3 px-5 px-lg-0">
-                        <a href="#" class="text-decoration-none text-dark ">
+                        <a href="{{ route('article' , $another->slug) }}" class="text-decoration-none text-dark ">
                             <div class="mb-3">
-                                <img class="w-full rounded" style="object-fit: cover; object-position: center; height: 180px" src="{{ asset($post->thumnail) }}" alt="">
+                                <img class="w-full rounded" style="object-fit: cover; object-position: center; height: 180px" src="{{ asset($another->thumnail) }}" alt="">
                             </div>
                             <h4 class="mb-4" style=" display: -webkit-box;
                                 -webkit-line-clamp: 2;
