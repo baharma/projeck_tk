@@ -4,7 +4,7 @@
 <div class="row g-2 mb-3">
     <div class="col mb-0">
         <label for="emailBasic" class="form-label">Nama</label>
-        <input type="name" class="form-control" placeholder="Masukkan nama registrasi..." wire:model.live='name' />
+        <input type="name" class="form-control" placeholder="Masukkan nama siswa..." wire:model.live='name' />
         @error('name') <span class="text-danger"><small>{{ $message }}</small></span> @enderror
     </div>
 </div>

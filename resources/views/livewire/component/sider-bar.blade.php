@@ -72,7 +72,7 @@
                 </a>
             </li>
 
-            <li class="menu-item {{ in_array( Route::currentRouteName() , ['company.form' , 'social-media.form']) ? 'active open' : '' }}">
+            <li class="menu-item {{ in_array( Route::currentRouteName() , ['post']) ? 'active open' : '' }}">
                 <a href="javascript:void(0);" class="menu-link menu-toggle">
                     <i class="menu-icon tf-icons bx bx-cog"></i>
                     <div data-i18n="Layouts">Postingan</div>
@@ -80,10 +80,10 @@
                 <ul class="menu-sub">
 
                     @foreach ($category as $item)
-                    <li class="menu-item {{ Route::currentRouteName() == 'company.form' ? 'active' : ''; }}">
+                    <li class="menu-item {{ route(Route::currentRouteName(), (isset(request()->route()->parameters['category']) ? request()->route()->parameters['category'] : '')) == route('post', $item->slug) ? 'active' : ''; }}">
                         <a href="{{ route('post',$item->slug) }}" class="menu-link">
                             <!-- <i class="menu-icon tf-icons bx bx-home-circle"></i> -->
-                            <div data-i18n="Analytics">Postingan {{$item->name}}</div>
+                            <div data-i18n="Analytics">{{$item->name}} </div>
                         </a>
                     </li>
                     @endforeach

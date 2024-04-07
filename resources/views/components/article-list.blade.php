@@ -12,7 +12,7 @@
 
             @foreach($posts as $post)
             <div class="col-lg-4 px-3 px-lg-5 mb-5">
-                <a href="#" class="w-full text-dark text-decoration-none article-post">
+                <a href="{{ route('article' , $post->slug) }}" class="w-full text-dark text-decoration-none article-post">
                     <div class="rounded w-full overflow-hidden mb-3 position-relative">
                         <img class="d-block w-full" src="{{ asset($post->thumnail) }}" style="object-fit: cover; object-position: center; height: 250px" alt="">
                         <div class="w-full h-full position-absolute top-0 d-flex justify-content-center align-items-center article-animation">

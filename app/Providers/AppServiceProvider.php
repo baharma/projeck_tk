@@ -26,6 +26,7 @@ use App\Repositories\PostRepository;
 use App\Repositories\RegistrationStudentRepository;
 use App\Repositories\SocialMediaRepository;
 use App\Repositories\UserRepository;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -97,6 +98,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        View::composer('layouts.app-front-end', function ($view) {
+            $company = Company::first();
+            $socialMedia = SocialMedia::all();
+            $view->with('company', $company);
+            $view->with('social_media', $socialMedia);
+        });
     }
 }

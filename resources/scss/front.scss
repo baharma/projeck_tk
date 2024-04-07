@@ -253,6 +253,17 @@ figure{
     }
 }
 
+.post {
+  p,  figure.image {
+    height: auto !important;
+    img {
+      width: 100%;
+      object-fit: contain;
+      height: auto !important;
+    }
+  }
+  
+}
 @media screen and (max-width: 991px) {
     .hero-section {
         min-height: auto;

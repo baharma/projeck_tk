@@ -68,7 +68,7 @@
     $wire.on('updateSuccess', (data) => {
 
         $wire.dispatch('swal:modal', [{
-            'title': 'Berhasil memperbaharui registrasi',
+            'title': 'Berhasil memperbaharui data sekolah',
             'type': 'success',
             'text': ''
         }]);

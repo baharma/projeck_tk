@@ -15,6 +15,9 @@
                         PERJALANAN KAMI
                     </h1>
                     <p class="text-center text-lg-start">
+                        {{ $company->description }}
+                    </p>
+                    <!-- <p class="text-center text-lg-start">
                         PAUD TK Kemala Asri terletak di desa Poh Bergaga, Kecamatan Tampaksiring, Kabupaten Gianyar, Bali. Sekolah ini didirikan pada tahun 2014 oleh sekelompok pendidik yang berkomitmen untuk meningkatkan kualitas pendidikan di wilayah tersebut. Sekolah ini memiliki visi dan misi yang jelas, yaitu untuk menjadi lembaga pendidikan yang unggul dan bertanggung jawab dalam membantu anak-anak berkembang optimally.
                     </p>
                     <p class="text-center text-lg-start">
@@ -28,7 +31,7 @@
                     </p>
                     <p class="text-center text-lg-start">
                         Sejauh ini, tindakan-tindakan ini telah menunjukkan hasil yang baik. Jumlah siswa di sekolah telah meningkat, dan kualitas pendidikan yang diberikan telah meningkat. Namun, sekolah masih menghadapi tantangan besar, yaitu mengatasi kurangnya informasi yang diterima oleh orang tua wali. Untuk mengatasi tantangan ini, sekolah akan terus mengembangkan strategi informasi yang lebih efektif, serta akan terus mengambil tindakan untuk meningkatkan kualitas pendidikan yang diberikan.
-                    </p>
+                    </p> -->
                 </div>
             </div>
             <div class="col-lg-6 d-flex justify-content-center">
