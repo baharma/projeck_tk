@@ -64,13 +64,13 @@
                     <div data-i18n="Analytics">Registrasi Siswa</div>
                 </a>
             </li>
-
+{{--
             <li class="menu-item {{ Route::currentRouteName() == 'category.list' ? 'active' : ''; }}">
                 <a href="{{ route('category.list') }}" class="menu-link">
                     <i class="menu-icon tf-icons bx bx-category"></i>
                     <div data-i18n="Analytics">Kategori</div>
                 </a>
-            </li>
+            </li> --}}
 
             <li class="menu-item {{ in_array( Route::currentRouteName() , ['post']) ? 'active open' : '' }}">
                 <a href="javascript:void(0);" class="menu-link menu-toggle">
