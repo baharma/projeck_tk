@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FrontEnd\FrontEndController;
 use App\Http\Controllers\HelperController;
 use App\Http\Controllers\Post\PostController;
@@ -22,9 +23,8 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/admin', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/admin',[AdminController::class,'index'])->middleware(['auth', 'verified'])->name('dashboard');;
+
 
 Route::get('/testing' , function() {
     return view('modules.test');
@@ -52,6 +52,7 @@ Route::controller(FrontEndController::class)->group(function(){
     Route::get('/profile','profile')->name('profile');
     Route::get('/pendaftaran', 'pendaftaran')->name('pendaftaran');
     Route::get('article/{slug}','article')->name('article');
+    Route::get('/Image-gallery','allImageGalery')->name('gallery-Image');
 });
 
 Route::post('image-upload/ckeditor', [HelperController::class, 'ckeditorUploadImage'])->name('image.upload');

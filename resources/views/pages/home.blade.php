@@ -131,6 +131,12 @@
                             <span class="iconify mb-3 rounded-circle bg-pink p-2" data-icon="solar:eye-broken" style="font-size: 56px; color: white"></span>
                         </div>
                     </div>
+                    <h3 class="mb-4" style=" display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;">
+                        {{ $item->title }}
+                    </h3>
                 </a>
             </div>
             @endforeach
@@ -139,6 +145,35 @@
 
         <div class="text-center">
             <a href="{{ route('fasilitas') }}" class="btn btn-pink d-inline-block">Lihat Semua</a>
+        </div>
+    </div>
+</section>
+
+
+<section style="padding: 90px 0 90px 0;">
+    <div class="container">
+        <h2 class="poppins-bold uppercase text-center" style="margin-bottom: 56px;">Gallery Image TK Kemala Asri</h2>
+
+        <div class="row mb-5">
+            @foreach($galery as $item)
+
+            <div class="col-lg-9 px-3 px-lg-5">
+                <a href="#" class="w-full text-dark text-decoration-none article-post">
+                    <div class="col-md-6 col-xl-4">
+                        <div class="card mb-3">
+                          <img class="card-img-top" src="{{ asset('assets/images/'.$item->url) }}" alt="Card image cap" />
+                          <div class="card-body">
+                            <h5 class="card-title">{{$item->name}}</h5>
+                          </div>
+                        </div>
+                      </div>
+                </a>
+            </div>
+            @endforeach
+        </div>
+
+        <div class="text-center">
+            <a href="{{ route('gallery-Image') }}" class="btn btn-pink d-inline-block">Lihat Semua</a>
         </div>
     </div>
 </section>
