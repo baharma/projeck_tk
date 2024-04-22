@@ -25,7 +25,7 @@ class FrontEndController extends Controller
     public function index(){
         $akademik_article = Post::whereHas('categories' , fn($q) => $q->whereIN('category_id' , [1,2]))->orderByDesc('created_at')->limit(6)->get();
         $fasilitas = Post::whereHas('categories' , fn($q) => $q->whereIN('category_id' , [3]))->orderByDesc('created_at')->limit(3)->get();
-        $galery = Gallery::orderByDesc('created_at')->limit(9)->get();
+        $galery = Gallery::where('pinned',true)->orderByDesc('created_at')->limit(9)->get();
         return view('pages.home', compact('akademik_article' , 'fasilitas','galery'));
     }
     public function akademik(){

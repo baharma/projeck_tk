@@ -17,7 +17,7 @@
             </div>
             <div class="col-lg-6 d-flex justify-content-end hero-section-2">
                 <div class="w-80 mx-auto m-lg-auto z-1 position-relative rounded overflow-hidden" style="height: 281px;">
-                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/0W98Bj2wkwM">
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/Sr5Eofb8SjA">
                     </iframe>
                 </div>
             </div>
@@ -156,19 +156,24 @@
 
         <div class="row mb-5">
             @foreach($galery as $item)
-
-            <div class="col-lg-9 px-3 px-lg-5">
-                <a href="#" class="w-full text-dark text-decoration-none article-post">
-                    <div class="col-md-6 col-xl-4">
-                        <div class="card mb-3">
-                          <img class="card-img-top" src="{{ asset('assets/images/'.$item->url) }}" alt="Card image cap" />
-                          <div class="card-body">
-                            <h5 class="card-title">{{$item->name}}</h5>
-                          </div>
+            <div class="col-lg-4 px-3 px-lg-5">
+                <a href="" class="w-full text-dark text-decoration-none article-post">
+                    <div class="rounded w-full overflow-hidden mb-3 position-relative">
+                        <img class="d-block w-full" src="{{ asset('assets/images/'.$item->url) }}" style="object-fit: cover; object-position: center; height: 250px" alt="">
+                        <div class="w-full h-full position-absolute top-0 d-flex justify-content-center align-items-center article-animation">
+                            <span class="iconify mb-3 rounded-circle bg-pink p-2" data-icon="solar:eye-broken" style="font-size: 56px; color: white"></span>
                         </div>
-                      </div>
+                    </div>
+                    <h3 class="mb-4" style=" display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;">
+                        {{$item->name}}
+                    </h3>
                 </a>
             </div>
+
+
             @endforeach
         </div>
 
