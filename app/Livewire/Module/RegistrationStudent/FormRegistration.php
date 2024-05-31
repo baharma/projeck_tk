@@ -26,6 +26,8 @@ class FormRegistration extends Component
     public $phone = null;
     public $kk_image = null;
     public $akta_image = null;
+    public $status = false;
+    public $showChangeStatus = true;
 
     public $title = 'Tambah Registrasi';
 
@@ -44,15 +46,34 @@ class FormRegistration extends Component
 
     public function rules()
     {
-        return [
+        $validation = [
             'name' => 'required|string',
             'gender' => 'required|string',
-            'religion_id' => 'required|string',
+            'religion_id' => 'required',
             'place_of_birth' => 'required|string',
             'date_of_birth' => 'required|string',
             'address' => 'required|string',
             'phone' => 'required|string',
         ];
+
+        if(count($this->parents) == 0) {
+            $validation['parents.0.name'] = 'required|string';
+            $validation['parents.0.place_of_birth'] = 'required|string';
+            $validation['parents.0.date_of_birth'] = 'required|string';
+            $validation['parents.0.job'] = 'required|string';
+            $validation['parents.0.education_id'] = 'required|string';
+            $validation['parents.0.address'] = 'required|string';
+        } else {
+            foreach ($this->parents as $key => $parent) {
+                $validation['parents.'.$key.'.name'] = 'required|string';
+                $validation['parents.'.$key.'.place_of_birth'] = 'required|string';
+                $validation['parents.'.$key.'.date_of_birth'] = 'required|string';
+                $validation['parents.'.$key.'.job'] = 'required|string';
+                $validation['parents.'.$key.'.education_id'] = 'required|string';
+                $validation['parents.'.$key.'.address'] = 'required|string';
+            }
+        }
+        return $validation;
     }
 
     public function messages()
@@ -64,6 +85,24 @@ class FormRegistration extends Component
             'place_of_birth' => 'Kolom tempat lahir tidak boleh kosong',
             'date_of_birth' => 'Kolom tanggal lahir tidak boleh kosong',
             'address' => 'Kolom alamat tidak boleh kosong',
+            'parents.0.name' => 'Nama ayah tidak boleh kosong',
+            'parents.0.place_of_birth' => 'Tempat lahir ayah tidak boleh kosong',
+            'parents.0.date_of_birth' => 'Tanggal lahir ayah tidak boleh kosong',
+            'parents.0.job' => 'Pekerjaan ayah tidak boleh kosong',
+            'parents.0.education_id' => 'Pendidikan ayah tidak boleh kosong',
+            'parents.0.address' => 'Alamat ayah tidak boleh kosong',
+            'parents.1.name' => 'Nama ibu tidak boleh kosong',
+            'parents.1.place_of_birth' => 'Tempat lahir ibu tidak boleh kosong',
+            'parents.1.date_of_birth' => 'Tanggal lahir ibu tidak boleh kosong',
+            'parents.1.job' => 'Pekerjaan ibu tidak boleh kosong',
+            'parents.1.education_id' => 'Pendidikan ibu tidak boleh kosong',
+            'parents.1.address' => 'Alamat ibu tidak boleh kosong',
+            'parents.2.name' => 'Nama wali tidak boleh kosong',
+            'parents.2.place_of_birth' => 'Tempat lahir wali tidak boleh kosong',
+            'parents.2.date_of_birth' => 'Tanggal lahir wali tidak boleh kosong',
+            'parents.2.job' => 'Pekerjaan wali tidak boleh kosong',
+            'parents.2.education_id' => 'Pendidikan wali tidak boleh kosong',
+            'parents.2.address' => 'Alamat wali tidak boleh kosong',
         ];
     }
 
@@ -95,6 +134,7 @@ class FormRegistration extends Component
             'weight' => $this->weight,
             'kk_image' => $this->kk_image,
             'akta_image' => $this->akta_image,
+            'status' => boolval($this->status) ? 'valid' : 'pending',
         ];
 
         if (is_null($this->id)) {
@@ -155,6 +195,7 @@ class FormRegistration extends Component
         $this->kk_image = $registration->kk_image;
         $this->akta_image = $registration->akta_image;
         $this->parents = $registration->parents->sortBy('type')->toArray();
+        $this->status = $registration->status == 'valid' ? true : false;
 
         if (!is_null($this->id)) {
             $this->title = 'Edit Registrasi';
@@ -184,6 +225,7 @@ class FormRegistration extends Component
         $this->weight = null;
         $this->kk_image = null;
         $this->akta_image = null;
+        $this->status = false;
         $this->parents = [];
     }
 }
