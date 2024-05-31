@@ -2,8 +2,8 @@
 
 @section('content')
 <section class="position-relative">
-    <div class="container">
-        <div class="row align-items-center hero-section">
+    <div class="container" style="z-index: 1">
+        <div class="row align-items-center hero-section" >
             <div class="col-lg-6 hero-section-1 " >
                 <div >
                     <h3 class="poppins-bold uppercase mb-4 text-center text-lg-start">
@@ -14,6 +14,7 @@
                         <a href="" class="btn btn-pink text-white">Pendaftaran Siswa</a>
                     </div>
                 </div>
+
             </div>
             <div class="col-lg-6 d-flex justify-content-end hero-section-2">
                 <div class="w-80 mx-auto m-lg-auto z-1 position-relative rounded overflow-hidden" style="height: 281px;">
@@ -22,11 +23,15 @@
                 </div>
             </div>
         </div>
+
+    </div>
+    <div class="container image-show">
+        <img src="{{asset('asset-kemala/image/undraw_donut_love_kau1.svg')}}" style="margin-left:300px; height: 150px;margin-top: -200px; opacity: 0.7;z-index: -1; " />
     </div>
     <div class="d-none d-lg-block bg-pink w-30 h-full position-absolute top-0 end-0" style="border-radius: 25px 0 0 25px; background-color: #FFEBF3"></div>
 </section>
 
-<section style="padding: 80px 0; background-position: unset;background-size: cover;background-repeat: no-repeat;background-image: url('{{ asset('asset-kemala/image/image-asset.jpeg') }}');">
+<section style="padding: 80px 0; ">
     <div class="container">
         <div class="row flex-column-reverse flex-lg-row ">
             <div class="col-lg-6 ">
@@ -82,12 +87,7 @@
 </section>
 
 <section style="padding: 90px 0 90px 0;" >
-    <div class="container" style="padding: 80px 0;
-    background-image: url('{{ asset('asset-kemala/image/undraw_fatherhood_-7-i19.svg') }}');
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-">
+    <div class="container" >
 
         <h2 class="poppins-bold uppercase text-center" style="margin-bottom: 56px;">Berita Terkini</h2>
 
@@ -158,12 +158,7 @@
 
 
 <section style="padding: 90px 0 90px 0;">
-    <div class="container" style="padding: 80px 0;
-    background-image: url('{{ asset('asset-kemala/image/undraw_family_vg76.svg') }}');
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-">
+    <div class="container" >
         <h2 class="poppins-bold uppercase text-center" style="margin-bottom: 56px;">Gallery Image TK Kemala Asri</h2>
 
         <div class="row mb-5">
