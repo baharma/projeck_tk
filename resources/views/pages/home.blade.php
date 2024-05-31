@@ -4,11 +4,11 @@
 <section class="position-relative">
     <div class="container">
         <div class="row align-items-center hero-section">
-            <div class="col-lg-6 hero-section-1">
-                <div>
-                    <h1 class="poppins-bold uppercase mb-4 text-center text-lg-start">
+            <div class="col-lg-6 hero-section-1 " >
+                <div >
+                    <h3 class="poppins-bold uppercase mb-4 text-center text-lg-start">
                         Sambutlah Masa Depan yang Cerah dengan Bergabung di TK Kemala Asri
-                    </h1>
+                    </h3>
                     <p class=" text-center text-lg-start">Bermain Sambil Belajar, Membangun Masa Depan Ceria.</p>
                     <div class="text-center text-lg-start">
                         <a href="" class="btn btn-pink text-white">Pendaftaran Siswa</a>
@@ -26,7 +26,7 @@
     <div class="d-none d-lg-block bg-pink w-30 h-full position-absolute top-0 end-0" style="border-radius: 25px 0 0 25px; background-color: #FFEBF3"></div>
 </section>
 
-<section style="padding: 80px 0 80px 0">
+<section style="padding: 80px 0; background-position: unset;background-size: cover;background-repeat: no-repeat;background-image: url('{{ asset('asset-kemala/image/image-asset.jpeg') }}');">
     <div class="container">
         <div class="row flex-column-reverse flex-lg-row ">
             <div class="col-lg-6 ">
@@ -81,14 +81,20 @@
     </div>
 </section>
 
-<section style="padding: 90px 0 90px 0;">
-    <div class="container">
+<section style="padding: 90px 0 90px 0;" >
+    <div class="container" style="padding: 80px 0;
+    background-image: url('{{ asset('asset-kemala/image/undraw_fatherhood_-7-i19.svg') }}');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+">
+
         <h2 class="poppins-bold uppercase text-center" style="margin-bottom: 56px;">Berita Terkini</h2>
 
         <div class="row mb-5">
             @foreach($akademik_article as $akademik)
-            <div class="col-lg-4 px-3 px-lg-5 mb-5">
-                <a href="{{ route('article' , ['slug' => $akademik->slug]) }}" class="w-full text-dark text-decoration-none article-post">
+            <div class="col-lg-4 px-3 px-lg-5 mb-5" >
+                <a href="{{ route('article' , ['slug' => $akademik->slug]) }}" class="w-full text-dark text-decoration-none article-post"  >
                     <div class="rounded w-full overflow-hidden mb-3 position-relative">
                         <img class="d-block w-full" src="{{ asset($akademik->thumnail) }}" style="object-fit: cover; object-position: center; height: 250px" alt="">
                         <div class="w-full h-full position-absolute top-0 d-flex justify-content-center align-items-center article-animation">
@@ -103,11 +109,12 @@
                         {{ $akademik->title }}
                     </h3>
                     <div class="d-flex justify-content-between">
-                        <p class="uppercase text-secondary">{{ $akademik->created_at }}</p>
+                        <p class="uppercase text-secondary">{{ $akademik->created_at->format('d F Y') }}</p>
                         <p class="uppercase text-secondary">{{ $akademik->categories->first()->name }}</p>
                     </div>
                 </a>
             </div>
+
             @endforeach
         </div>
 
@@ -151,13 +158,19 @@
 
 
 <section style="padding: 90px 0 90px 0;">
-    <div class="container">
+    <div class="container" style="padding: 80px 0;
+    background-image: url('{{ asset('asset-kemala/image/undraw_family_vg76.svg') }}');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+">
         <h2 class="poppins-bold uppercase text-center" style="margin-bottom: 56px;">Gallery Image TK Kemala Asri</h2>
 
         <div class="row mb-5">
             @foreach($galery as $item)
             <div class="col-lg-4 px-3 px-lg-5">
-                <a href="" class="w-full text-dark text-decoration-none article-post">
+                <a class="w-full text-dark text-decoration-none article-post" data-bs-toggle="modal"
+                data-bs-target="#show-{{$item->id}}">
                     <div class="rounded w-full overflow-hidden mb-3 position-relative">
                         <img class="d-block w-full" src="{{ asset('assets/images/'.$item->url) }}" style="object-fit: cover; object-position: center; height: 250px" alt="">
                         <div class="w-full h-full position-absolute top-0 d-flex justify-content-center align-items-center article-animation">
@@ -172,8 +185,7 @@
                     </h3>
                 </a>
             </div>
-
-
+            <livewire:component.modal  :image="$item->url" :name="$item->name" :modalName="$item->id"  :key="$item->id"  />
             @endforeach
         </div>
 
