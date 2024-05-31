@@ -262,9 +262,12 @@ figure{
       height: auto !important;
     }
   }
-  
+
 }
 @media screen and (max-width: 991px) {
+    .image-show{
+        display: none;
+    }
     .hero-section {
         min-height: auto;
     }

@@ -22,7 +22,7 @@
                         <li><a class="dropdown-item" href="{{ route('kegiatan-akademik') }}">Kegiatan</a></li>
                         <li><a class="dropdown-item" href="{{ route('prestasi') }}">Presatasi</a></li>
                         <li><a class="dropdown-item" href="{{ route('fasilitas') }}">Fasilitas</a></li>
-                        <li><a class="dropdown-item" href="{{ route('gallery-Image') }}">Gallery Image</a></li>
+                        <li><a class="dropdown-item" href="{{ route('gallery-Image') }}">Gallery</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
