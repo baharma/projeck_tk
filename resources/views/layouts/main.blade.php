@@ -59,8 +59,8 @@
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="{{asset('sneat-1.0.0/assets/js/config.js')}}"></script>
     <script src="{{asset('sneat-1.0.0/js/ckeditor.js')}}"></script>
-    <link rel="stylesheet" href="{{asset('sneat-1.0.0/css/dropify.css')}}">
-    <script src="{{asset('sneat-1.0.0/js/dropify.js')}}"> </script>
+    <!-- <link rel="stylesheet" href="{{asset('sneat-1.0.0/css/dropify.css')}}"> -->
+    <!-- <script src="{{asset('sneat-1.0.0/js/dropify.js')}}"> </script>/ -->
 
   </head>
 
@@ -142,7 +142,7 @@
 
         // });
     </script>
-           @vite(['resources/js/app.js'])
+           
 <script src="
 https://cdn.jsdelivr.net/npm/sweetalert2@11.10.5/dist/sweetalert2.all.min.js
 "></script>
