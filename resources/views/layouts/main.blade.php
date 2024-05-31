@@ -132,15 +132,15 @@
     </script>
     @livewireScripts
     <script>
-        $('.dropify').dropify({
-            messages: {
-                'default': 'Minimum image size 1 MB',
-                'replace': 'Drag and drop or click to replace',
-                'remove': 'Remove',
-                'error': 'Oops! Something wrong happened.'
-            }
+        // $('.dropify').dropify({
+        //     messages: {
+        //         'default': 'Minimum image size 1 MB',
+        //         'replace': 'Drag and drop or click to replace',
+        //         'remove': 'Remove',
+        //         'error': 'Oops! Something wrong happened.'
+        //     }
 
-        });
+        // });
     </script>
            @vite(['resources/js/app.js'])
 <script src="
