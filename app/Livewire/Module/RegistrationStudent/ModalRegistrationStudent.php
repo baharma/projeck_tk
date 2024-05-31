@@ -26,6 +26,8 @@ class ModalRegistrationStudent extends Component
     public $phone = null;
     public $kk_image = null;
     public $akta_image = null;
+    public $status = null;
+    public $showChangeStatus = true;
 
     public $title = 'Tambah Registrasi';
 
@@ -47,7 +49,7 @@ class ModalRegistrationStudent extends Component
         return [
             'name' => 'required|string',
             'gender' => 'required|string',
-            'religion_id' => 'required|string',
+            'religion_id' => 'required',
             'place_of_birth' => 'required|string',
             'date_of_birth' => 'required|string',
             'address' => 'required|string',
@@ -95,7 +97,8 @@ class ModalRegistrationStudent extends Component
             'weight' => $this->weight,
             'kk_image' => $this->kk_image,
             'akta_image' => $this->akta_image,
-        ];
+            'status' => boolval($this->status) ? 'valid' : 'pending',
+        ]; 
 
         if (is_null($this->id)) {
             $registration = $this->repository->createStudent($data);
@@ -155,6 +158,7 @@ class ModalRegistrationStudent extends Component
         $this->kk_image = $registration->kk_image;
         $this->akta_image = $registration->akta_image;
         $this->parents = $registration->parents->sortBy('type')->toArray();
+        $this->status = $registration->status == 'valid' ? true : false;
 
         if (!is_null($this->id)) {
             $this->title = 'Edit Registrasi';
@@ -184,6 +188,7 @@ class ModalRegistrationStudent extends Component
         $this->weight = null;
         $this->kk_image = null;
         $this->akta_image = null;
+        $this->status = false;
         $this->parents = [];
     }
 }

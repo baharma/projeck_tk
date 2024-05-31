@@ -12,7 +12,7 @@
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-lg-8">
-                @livewire('module.registration-student.form-registration')
+                @livewire('module.registration-student.form-registration' , ['showChangeStatus' => false])
             </div>
         </div>
     </div>
