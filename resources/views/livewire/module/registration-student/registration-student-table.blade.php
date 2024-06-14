@@ -54,6 +54,12 @@
                     </tr>
                     @endforeach
 
+                    @if($registrations->count() == 0) 
+                        <tr>
+                            <td colspan="6" class="text-center">Tidak ada data</td>
+                        </tr>
+                    @endif
+
                 </tbody>
             </table>
             <div class="mt-5 d-flex justify-content-center">

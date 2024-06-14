@@ -52,6 +52,12 @@
                         </tr>
                         @endforeach
 
+                        @if($userAll->count() == 0) 
+                            <tr>
+                                <td colspan="5" class="text-center">Tidak ada data</td>
+                            </tr>
+                        @endif
+
                     </tbody>
                 </table>
 
