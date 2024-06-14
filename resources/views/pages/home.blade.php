@@ -11,7 +11,7 @@
                     </h3>
                     <p class=" text-center text-lg-start">Bermain Sambil Belajar, Membangun Masa Depan Ceria.</p>
                     <div class="text-center text-lg-start">
-                        <a href="" class="btn btn-pink text-white">Pendaftaran Siswa</a>
+                        <a href="{{ route('pendaftaran') }}" class="btn btn-pink text-white">Pendaftaran Siswa</a>
                     </div>
                 </div>
 
