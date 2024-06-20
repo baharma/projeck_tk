@@ -12,7 +12,7 @@ class Gallery extends Model
     protected $table = 'galleries';
 
     protected $fillable = [
-        'name' , 'pinned','url'
+        'name' , 'pinned','url' , 'is_banner'
     ];
 
 

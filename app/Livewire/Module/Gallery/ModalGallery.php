@@ -17,6 +17,7 @@ class ModalGallery extends Component
     public $name = null;
     public $url = null;
     public $pinned = 0;
+    public $is_banner = 0;
 
     public $title = 'Tambah Galeri';
 
@@ -35,7 +36,8 @@ class ModalGallery extends Component
         return [
             'name' => 'required|string',
             'url' => 'required',
-            'pinned' => 'required'
+            'pinned' => 'required',
+            'is_banner' => 'required'
         ];
     }
 
@@ -45,6 +47,7 @@ class ModalGallery extends Component
             'name.required' => 'Kolom nama tidak boleh kosong.',
             'url.required' => 'Kolom gambar tidak boleh kosong.',
             'pinned' => 'Kolom pin tidak boleh kosong.',
+            'is_banner' => 'Kolom banner tidak boleh kosong.',
         ];
     }
 
@@ -62,6 +65,7 @@ class ModalGallery extends Component
                 'name' => $this->name,
                 'url' => $this->url,
                 'pinned' => $this->pinned,
+                'is_banner' => $this->is_banner,
             ]);
 
             $this->dispatch('createSuccess', $gallery)->to(GalleryTable::class);
@@ -72,6 +76,7 @@ class ModalGallery extends Component
                 'name' => $this->name,
                 'url' => $this->url,
                 'pinned' => $this->pinned,
+                'is_banner' => $this->is_banner,
             ]);
 
             $this->dispatch('updateSuccess', $gallery)->to(GalleryTable::class);
@@ -90,6 +95,7 @@ class ModalGallery extends Component
         $this->name = $gallery->name;
         $this->url = $gallery->url;
         $this->pinned = $gallery->pinned;
+        $this->is_banner = $gallery->is_banner;
 
         if (!is_null($this->id)) {
             $this->title = 'Edit Galeri';
@@ -99,7 +105,7 @@ class ModalGallery extends Component
     #[On(['createSuccess', 'updateSuccess'])]
     public function renderComponent()
     {
-        $this->render();
+        // $this->resetForm();
     }
 
     #[On(['createSuccess', 'updateSuccess' , 'reset'])]
@@ -109,6 +115,7 @@ class ModalGallery extends Component
         $this->id = null;
         $this->name = null;
         $this->pinned = 0;
+        $this->is_banner = 0;
         $this->url = null;
     }
 }

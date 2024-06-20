@@ -1,34 +1,50 @@
 @extends('layouts.app-front-end')
 
 @section('content')
-<section class="position-relative">
+<section class="position-relative hero-section d-flex flex-column justify-content-center" style="background-image: url('{{ asset('assets/images/'.$banner->url) }}'); background-repeat: no-repeat; background-size: cover; background-posisition: center;">
+    <div class="position-absolute" style="width: 100%; height: 100%; background-color: rgba(0,0,0, 0.7); "></div>
     <div class="container" style="z-index: 1">
-        <div class="row align-items-center hero-section" >
+        <div class="row align-items-center " >
             <div class="col-lg-6 hero-section-1 " >
-                <div >
-                    <h3 class="poppins-bold uppercase mb-4 text-center text-lg-start">
+                <div>
+                    <h3 class="poppins-bold uppercase mb-4 text-center text-lg-start text-white">
                         Sambutlah Masa Depan yang Cerah dengan Bergabung di TK Kemala Asri
                     </h3>
-                    <p class=" text-center text-lg-start">Bermain Sambil Belajar, Membangun Masa Depan Ceria.</p>
-                    <div class="text-center text-lg-start">
+                    <p class=" text-center text-lg-start text-white">Bermain Sambil Belajar, Membangun Masa Depan Ceria.</p>
+                    <div class="text-center text-lg-start text-white">
                         <a href="{{ route('pendaftaran') }}" class="btn btn-pink text-white">Pendaftaran Siswa</a>
                     </div>
                 </div>
 
             </div>
             <div class="col-lg-6 d-flex justify-content-end hero-section-2">
-                <div class="w-80 mx-auto m-lg-auto z-1 position-relative rounded overflow-hidden" style="height: 281px;">
-                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/Sr5Eofb8SjA">
-                    </iframe>
+                <div class="swiper mySwiper mb-5 mb-lg-0">
+                    <div class="swiper-wrapper">
+                        @foreach($pengumuman as $p)
+                            <div class="swiper-slide" style="border-radius: 15px; overflow: hidden">
+                                <div class="position-relative">
+                                    <img width="100%" style="object-fit: cover; height: 350px;" src="{{ $p->thumnail }}" alt="">
+                                    <div class="position-absolute bottom-0 w-100 p-4 d-flex flex-column align-items-start" style="background-color: rgba(0,0,0, 0.5)">
+                                        <h3 class="text-light text-start mb-3 truncate">{{ $p->title }}</h3>
+                                        <div>
+                                            @foreach($p->categories as $category) 
+                                                <span class="text-white"><small>{{ $category->name }}</small></span>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
                 </div>
             </div>
         </div>
 
     </div>
-    <div class="container image-show">
-        <img src="{{asset('asset-kemala/image/undraw_donut_love_kau1.svg')}}" style="margin-left:300px; height: 150px;margin-top: -200px; opacity: 0.7;z-index: -1; " />
-    </div>
-    <div class="d-none d-lg-block bg-pink w-30 h-full position-absolute top-0 end-0" style="border-radius: 25px 0 0 25px; background-color: #FFEBF3"></div>
+    <!-- <div class="d-none d-lg-block bg-pink w-30 h-full position-absolute top-0 end-0" style="border-radius: 25px 0 0 25px; background-color: #FFEBF3"></div> -->
 </section>
 
 <section style="padding: 80px 0; ">
@@ -36,7 +52,9 @@
         <div class="row flex-column-reverse flex-lg-row ">
             <div class="col-lg-6 ">
                 <div class="w-full h-full overflow-hidden rounded" style="height: 504px;">
-                    <img src="{{ asset('asset-kemala/image/tentang-sekolah.png') }}" style="object-fit: cover; object-position: center;" alt="">
+                    <!-- <img src="{{ asset('asset-kemala/image/tentang-sekolah.png') }}" style="object-fit: cover; object-position: center;" alt=""> -->
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/Sr5Eofb8SjA">
+                    </iframe>
                 </div>
             </div>
             <div class="col-lg-6 d-flex flex-column justify-content-center ps-lg-5 gap-3 mb-5 mb-lg-auto">

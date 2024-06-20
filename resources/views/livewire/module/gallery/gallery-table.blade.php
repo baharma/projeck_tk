@@ -39,6 +39,9 @@
                             @if($gallery->pinned == 1)
                             <span class="badge bg-success"><small>Tampil diwebsite</small></span>
                             @endif
+                            @if($gallery->is_banner == 1)
+                            <span class="badge bg-info"><small>Banner</small></span>
+                            @endif
                         </td>
                         <td>
                             <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#modalGallery" wire:click.prevent="find({{ $gallery->id }})">
