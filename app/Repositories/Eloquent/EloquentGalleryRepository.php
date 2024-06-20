@@ -38,6 +38,10 @@ class EloquentGalleryRepository extends EloquentBaseRepository implements Galler
                 $data['url'] = $this->uploadImage($data['url'], 'gallery');
             }
         }
+
+        if(isset($data['is_banner']) && boolval($data['is_banner'])) {
+            $this->model->where('is_banner', 1)->update(['is_banner' => 0]);
+        } 
         return $this->create($data);
     }
 
@@ -48,6 +52,11 @@ class EloquentGalleryRepository extends EloquentBaseRepository implements Galler
                 $data['url'] = $this->uploadImage($data['url'], 'gallery');
             }
         }
+        
+        if(isset($data['is_banner']) && boolval($data['is_banner'])) {
+            $this->model->where('is_banner', 1)->update(['is_banner' => 0]);
+        } 
+
         return $this->update( $gallery, $data);
     }
 }

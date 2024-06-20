@@ -25,11 +25,25 @@
                                 @error('url') <span class="text-danger"><small>{{ $message }}</small></span> @enderror
                             </div>
                             <div class="col-12 mb-2">
+
+                                @php 
+                                    $idCheckbox1 = rand();
+                                @endphp
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck3" wire:model.live='pinned' {{ $pinned == 1 ? 'checked' : '' }}>
-                                    <label class="form-check-label" for="defaultCheck3"> Tampilkan gambar pada website </label>
+                                    <input class="form-check-input" type="checkbox" value="" id="{{ $idCheckbox1 }}" wire:model.live='pinned' {{ $pinned == 1 ? 'checked' : '' }}>
+                                    <label class="form-check-label" for="{{ $idCheckbox1 }}"> Tampilkan gambar pada website </label>
                                 </div>
                                 @error('pinned') <span class="text-danger"><small>{{ $message }}</small></span> @enderror
+                            </div>
+                            <div class="col-12 mb-2">
+                                @php 
+                                    $idCheckbox2 = rand();
+                                @endphp
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="{{ $idCheckbox2 }}" wire:model.live='is_banner' {{ $is_banner == 1 ? 'checked' : '' }}>
+                                    <label class="form-check-label" for="{{ $idCheckbox2 }}"> Jadikan sebagai banner </label>
+                                </div>
+                                @error('is_banner') <span class="text-danger"><small>{{ $message }}</small></span> @enderror
                             </div>
                         </div>
                     </div>
