@@ -22,17 +22,19 @@
                     <div class="swiper-wrapper">
                         @foreach($pengumuman as $p)
                             <div class="swiper-slide" style="border-radius: 15px; overflow: hidden">
-                                <div class="position-relative">
-                                    <img width="100%" style="object-fit: cover; height: 350px;" src="{{ $p->thumnail }}" alt="">
-                                    <div class="position-absolute bottom-0 w-100 p-4 d-flex flex-column align-items-start" style="background-color: rgba(0,0,0, 0.5)">
-                                        <h3 class="text-light text-start mb-3 truncate">{{ $p->title }}</h3>
-                                        <div>
-                                            @foreach($p->categories as $category) 
-                                                <span class="text-white"><small>{{ $category->name }}</small></span>
-                                            @endforeach
+                                <a href="{{ route('article', ['slug'=> $p->slug]) }}">
+                                    <div class="position-relative">
+                                        <img width="100%" style="object-fit: cover; height: 350px;" src="{{ $p->thumnail }}" alt="">
+                                        <div class="position-absolute bottom-0 w-100 p-4 d-flex flex-column align-items-start" style="background-color: rgba(0,0,0, 0.5)">
+                                            <h3 class="text-light text-start mb-3 truncate">{{ $p->title }}</h3>
+                                            <div>
+                                                @foreach($p->categories as $category) 
+                                                    <span class="text-white"><small>{{ $category->name }}</small></span>
+                                                @endforeach
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                </a>
                             </div>
                         @endforeach
                     </div>

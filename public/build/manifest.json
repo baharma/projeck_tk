@@ -1,0 +1,34 @@
+{
+  "__commonjsHelpers-HyosEvt5.js": {
+    "file": "assets/_commonjsHelpers-HyosEvt5.js"
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-f0mNRiTD.css",
+    "isEntry": true,
+    "src": "resources/css/app.css"
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-aP4iC1zl.js",
+    "imports": [
+      "__commonjsHelpers-HyosEvt5.js"
+    ],
+    "isEntry": true,
+    "src": "resources/js/app.js"
+  },
+  "resources/js/front.js": {
+    "css": [
+      "assets/front-7t5sOE1N.css"
+    ],
+    "file": "assets/front-fmz-JMBK.js",
+    "imports": [
+      "__commonjsHelpers-HyosEvt5.js"
+    ],
+    "isEntry": true,
+    "src": "resources/js/front.js"
+  },
+  "resources/scss/front.scss": {
+    "file": "assets/front-ucxJapVD.css",
+    "isEntry": true,
+    "src": "resources/scss/front.scss"
+  }
+}
