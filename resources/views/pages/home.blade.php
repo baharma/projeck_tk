@@ -197,8 +197,8 @@
                         {{$item->name}}
                     </h3>
                 </a>
+                <livewire:component.modal  :image="$item->url" :name="$item->name" :modalName="$item->id"  :key="$item->id"  />
             </div>
-            <livewire:component.modal  :image="$item->url" :name="$item->name" :modalName="$item->id"  :key="$item->id"  />
             @endforeach
         </div>
 
