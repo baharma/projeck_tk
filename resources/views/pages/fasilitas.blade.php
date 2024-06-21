@@ -12,7 +12,7 @@
     <div class="container">
         <div class="row mb-5">
 
-            @foreach($posts as $post)
+            @foreach($articles as $post)
             <div class="col-lg-4 px-3 px-lg-5 mb-5">
                 <a href="{{ route('article' , $post->slug) }}" class="w-full text-dark text-decoration-none article-post">
                     <div class="rounded w-full overflow-hidden mb-3 position-relative">

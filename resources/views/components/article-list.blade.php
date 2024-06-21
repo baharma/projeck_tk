@@ -27,7 +27,7 @@
                         {{ $post->title }}
                     </h3>
                     <div class="d-flex justify-content-between">
-                        <p class="uppercase text-secondary">{{ $post->created_at }}</p>
+                        <p class="uppercase text-secondary">{{ $post->created_at->format('d F Y') }}</p>
                         <p class="uppercase text-secondary">{{ $post->categories()->first()->name }}</p>
                     </div>
                 </a>
