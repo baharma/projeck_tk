@@ -19,7 +19,7 @@
               <div class="card-title">
                 Grafik Siswa Tahunan
               </div>
-              <div id="chartSiswa"></div>
+              <div id="chartSiswa" ></div>
             </div>
           </div>
           <div class="card">
@@ -213,11 +213,11 @@
       },
       grid: {
         borderColor: config.colors.borderColor,
-        strokeDashArray: 3,
+        strokeDashArray: 5,
         padding: {
           top: -20,
           bottom: -8,
-          left: -10,
+          left: 40,
           right: 8
         }
       },
@@ -230,13 +230,15 @@
           show: false
         },
         labels: {
-          show: true,
-          style: {
-            fontSize: '13px',
-            colors: config.colors.axisColor
-          }
-        }
-      },
+            show: true,
+            style: {
+                fontSize: '12px',
+                colors: config.colors.axisColor
+            },
+            offsetX: 0// Ubah nilai ini sesuai kebutuhan untuk menggeser label
+        },
+        tickPlacement: 'on' // Pastikan ticks ditempatkan dengan benar
+    },
       yaxis: {
         labels: {
           show: true

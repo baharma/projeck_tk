@@ -1,7 +1,7 @@
 @extends('layouts.app-front-end')
 
 @section('content')
-<section class="position-relative hero-section d-flex flex-column justify-content-center" style="background-image: url('{{ asset('assets/images/'.$banner->url) }}'); background-repeat: no-repeat; background-size: cover; background-posisition: center;">
+<section class="position-relative hero-section d-flex flex-column justify-content-center" style="background-image: url('{{ asset('assets/images/' . ($banner->url ?? '')) }}'); background-repeat: no-repeat; background-size: cover; background-posisition: center;">
     <div class="position-absolute" style="width: 100%; height: 100%; background-color: rgba(0,0,0, 0.7); "></div>
     <div class="container" style="z-index: 1">
         <div class="row align-items-center " >
@@ -28,7 +28,7 @@
                                         <div class="position-absolute bottom-0 w-100 p-4 d-flex flex-column align-items-start" style="background-color: rgba(0,0,0, 0.5)">
                                             <h3 class="text-light text-start mb-3 truncate">{{ $p->title }}</h3>
                                             <div>
-                                                @foreach($p->categories as $category) 
+                                                @foreach($p->categories as $category)
                                                     <span class="text-white"><small>{{ $category->name }}</small></span>
                                                 @endforeach
                                             </div>
