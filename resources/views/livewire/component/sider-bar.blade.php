@@ -127,7 +127,7 @@
 
                     <!-- <li class="menu-item {{ Route::currentRouteName() == 'social-media.form' ? 'active' : ''; }}">
                         <a href="{{ route('social-media.form') }}" class="menu-link">
-                            <!-- <i class="menu-icon tf-icons bx bx-home-circle"></i> -->
+                            <i class="menu-icon tf-icons bx bx-home-circle"></i>
                             <div data-i18n="Analytics">Banner</div>
                         </a>
                     </li> -->
