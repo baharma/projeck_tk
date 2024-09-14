@@ -20,9 +20,9 @@
         <div class="menu-inner p-2">
             <h5 id="">Form Post</h5>
 
-            <label class="form-label" for="basic-default-fullname">Nama Postiongan</label>
+            <label class="form-label" for="basic-default-fullname">Nama Postingan</label>
             <input type="text" class="form-control mb-3" id="basic-default-fullname" wire:model='title'
-            placeholder="Title Postiongan" />
+            placeholder="Title Postingan" />
 
             <label for="exampleFormControlSelect1" class="form-label">Status</label>
             <select class="form-select mb-3" id="exampleFormControlSelect1" wire:model="status"
@@ -33,7 +33,7 @@
             </select>
 
             <div class="mb-3">
-                <label for="exampleFormControlSelect1" class="form-label">Image Thumnail</label>
+                <label for="exampleFormControlSelect1" class="form-label">Image Thumbnail</label>
                 <div class="input-group" wire:ignore x-data="{ view: false,upload:true }" x-init="
                         if({{ json_encode($thumnail) }}) {
                             view = true;
