@@ -12,11 +12,22 @@
                     </div>
                 </div>
                 <div class="ms-3">
-                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalRegistrasi" wire:click="resetForm"><span class="bx bx-plus"></span> Tambah</button>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalRegistrasi" wire:click="resetForm">
+                        <span class="bx bx-plus"></span>
+                        Tambah
+                    </button>
+                </div>
+                <div class="ms-3">
+                    <button
+                    class="btn btn-success"
+                    data-bs-toggle="modal"
+                    data-bs-target="#modalCenter">
+                        <i class='bx bxs-file-pdf'></i>
+                        Rekap
+                    </button>
                 </div>
             </div>
         </div>
-
         <div class="table-responsive text-nowrap mt-5">
             <table class="table table-bordered">
                 <thead class="bg-light">
@@ -54,7 +65,7 @@
                     </tr>
                     @endforeach
 
-                    @if($registrations->count() == 0) 
+                    @if($registrations->count() == 0)
                         <tr>
                             <td colspan="6" class="text-center">Tidak ada data</td>
                         </tr>
@@ -67,6 +78,65 @@
             </div>
         </div>
     </div>
+
+            <div wire:ignore class="modal fade" id="modalCenter" tabindex="-1" aria-hidden="true">
+                <div wire:ignore class="modal-dialog modal-dialog-centered" role="document">
+
+                  <div wire:ignore class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="modalCenterTitle">Modal title</h5>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="row">
+                        <div class="col mb-3">
+                            <label for="exampleFormControlSelect1" class="form-label">Status</label>
+                            <select class="form-select" id="exampleFormControlSelect1" aria-label="Default select example" wire:model='form.status'>
+                              <option selected></option>
+                              <option value="valid">Valid</option>
+                              <option value="pending">Pending</option>
+                            </select>
+                        </div>
+                      </div>
+                      <div class="row g-2">
+                        <div class="col mb-0">
+                          <label for="emailWithTitle" class="form-label">Start Date</label>
+                          <input
+                            type="date"
+                            id="emailWithTitle"
+                            class="form-control"
+                            wire:model='form.date_start'
+                          />
+                        </div>
+                        <div class="col mb-0">
+                          <label for="dobWithTitle" class="form-label">End Date</label>
+                          <input
+                            type="date"
+                            id="dobWithTitle"
+                            class="form-control"
+                            wire:model='form.date_end'
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" id="closeModalId" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                        Close
+                      </button>
+                    <button type="button" wire:click='save' class="btn btn-primary">
+                        <i class='bx bxs-file-pdf'></i>
+                        Rekap PDF
+                    </button>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
 </div>
 
 @script
@@ -86,5 +156,9 @@
             }
         });
     });
+    $wire.on('closeModal',()=>{
+        const idModalButton = document.getElementById("closeModalId")
+        idModalButton.click()
+    })
 </script>
 @endscript

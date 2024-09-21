@@ -3,6 +3,7 @@
 namespace App\Livewire\Module\RegistrationStudent;
 
 use App\Repositories\RegistrationStudentRepository;
+use PDF;
 use Livewire\Attributes\On;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -10,6 +11,11 @@ use Livewire\WithPagination;
 class RegistrationStudentTable extends Component
 {
     use WithPagination;
+    public $form = [
+        'status'=>false,
+        'date_start'=>'',
+        'date_end'=>''
+    ];
 
     protected $queryString = [
         'search' => [
@@ -45,8 +51,6 @@ class RegistrationStudentTable extends Component
 
     public function deleteConfirm($id)
     {
-        
-
         $this->dispatch('swal:confirm' , [
             'title' => 'Apakah anda yakin?',
             'text' => '',
@@ -56,14 +60,11 @@ class RegistrationStudentTable extends Component
     }
 
     #[On(['delete'])]
-    public function delete($id) 
+    public function delete($id)
     {
-
         $repo = app(RegistrationStudentRepository::class);
         $model = $repo->find($id);
-
         $repo->destroy($model);
-
         $this->dispatch('swal:modal', [
             'title' => 'Berhasil hapus registrasi',
             'type' => 'success',
@@ -75,6 +76,14 @@ class RegistrationStudentTable extends Component
     public function renderComponent()
     {
         $this->render();
+    }
+
+    public function save(){
+        return redirect()->route('pdf-registrasi',[
+            'status' => $this->form['status'],
+            'date_start' => $this->form['date_start'],
+            'date_end' => $this->form['date_end'],
+        ]);
     }
 
     public function resetForm()

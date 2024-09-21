@@ -3,6 +3,7 @@
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\PDFController;
 use App\Http\Controllers\Post\PostController;
 use App\Http\Controllers\ProfileController;
 use App\Livewire\Module\Kegiatan\CanvasKegiatan;
@@ -47,4 +48,6 @@ Route::middleware(['auth'])->prefix('admin')->group(function(){
         Route::get('/post/form/{category}','PostForm')->name('post-form');
         Route::get('/post/edit-form/{post}','PostEditForm')->name('post-edit.form');
     });
+
+    Route::get("/pdf/registration-students",[PDFController::class,'registrasiStudent'])->name('pdf-registrasi');
 });
