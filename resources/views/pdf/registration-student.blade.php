@@ -57,7 +57,7 @@
             </tr>
             <tr>
                 <th>Agama</th>
-                <td>{{ $student->religion_id }}</td>
+                <td>{{ $student->agama->name }}</td>
             </tr>
             <tr>
                 <th>Alamat</th>

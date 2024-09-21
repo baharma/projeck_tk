@@ -29,4 +29,8 @@ class RegistrationStudent extends Model
     {
         return $this->hasMany(ParentStudent::class, 'registration_student_id');
     }
+
+    public function agama(){
+        return $this->belongsTo(Religion::class,'religion_id','id');
+    }
 }
