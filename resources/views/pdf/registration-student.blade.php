@@ -1,33 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data Pendaftaran Siswa</title>
     <style>
+        /* Mengatur orientasi halaman menjadi landscape */
+        @page {
+            size: A4 landscape;
+            margin: 20px;
+        }
+
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
+            margin: 0;
             padding: 0;
+            font-size: 12px; /* Mengurangi ukuran font untuk penghematan ruang */
         }
+
         h1 {
             text-align: center;
+            margin-bottom: 20px;
+            font-size: 20px;
         }
+
+        .student-section {
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            margin-bottom: 8px;
+            font-size: 16px;
+            color: #333;
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 20px 0;
+            margin-bottom: 10px;
         }
+
         th, td {
             border: 1px solid #000;
-            padding: 8px;
+            padding: 4px 6px; /* Mengurangi padding untuk hemat ruang */
             text-align: left;
+            vertical-align: top;
         }
+
         th {
             background-color: #f2f2f2;
+            width: 20%; /* Menyesuaikan lebar kolom header */
+            font-weight: bold;
         }
-        .section {
-            margin-bottom: 20px;
+
+        .parents-table th {
+            background-color: #e6f7ff;
+        }
+
+        /* Memisahkan informasi siswa dan orang tua dengan garis */
+        .divider {
+            border-bottom: 2px solid #000;
+            margin: 15px 0;
+        }
+
+        /* Mengurangi margin antar section */
+        .student-section + .student-section {
+            margin-top: 15px;
+        }
+
+        /* Responsif untuk cetakan */
+        @media print {
+            body {
+                margin: 0;
+            }
         }
     </style>
 </head>
@@ -35,83 +80,44 @@
 
     <h1>Data Pendaftaran Siswa</h1>
 
-    @foreach($students as $student)
-    <div class="section">
-        <h2>Informasi Siswa: {{ $student->name }}</h2>
-        <table>
-            <tr>
-                <th>Nama</th>
-                <td>{{ $student->name }}</td>
-            </tr>
-            <tr>
-                <th>Jenis Kelamin</th>
-                <td>{{ $student->gender }}</td>
-            </tr>
-            <tr>
-                <th>Tanggal Lahir</th>
-                <td>{{ $student->date_of_birth }}</td>
-            </tr>
-            <tr>
-                <th>Tempat Lahir</th>
-                <td>{{ $student->place_of_birth }}</td>
-            </tr>
-            <tr>
-                <th>Agama</th>
-                <td>{{ $student->agama->name }}</td>
-            </tr>
-            <tr>
-                <th>Alamat</th>
-                <td>{{ $student->address }}</td>
-            </tr>
-            <tr>
-                <th>Telepon</th>
-                <td>{{ $student->phone }}</td>
-            </tr>
-            <tr>
-                <th>Jumlah Saudara</th>
-                <td>{{ $student->number_of_siblings }}</td>
-            </tr>
-            <tr>
-                <th>Tinggi Badan</th>
-                <td>{{ $student->height }}</td>
-            </tr>
-            <tr>
-                <th>Berat Badan</th>
-                <td>{{ $student->weight }}</td>
-            </tr>
-            <tr>
-                <th>Status</th>
-                <td>{{ $student->status ? 'Aktif' : 'Tidak Aktif' }}</td>
-            </tr>
-        </table>
 
-        <h3>Informasi Orang Tua</h3>
-        <table>
+    <div class="student-section">
+
+        <table class="student-info">
             <thead>
+
                 <tr>
                     <th>Nama</th>
+                    <th>Jenis Kelamin</th>
                     <th>Tanggal Lahir</th>
                     <th>Tempat Lahir</th>
-                    <th>Pendidikan</th>
-                    <th>Pekerjaan</th>
+                    <th>Agama</th>
                     <th>Alamat</th>
+                    <th>Telepon</th>
+                    <th>Jumlah Saudara</th>
+                    <th>Tinggi Badan</th>
+                    <th>Berat Badan</th>
+                    <th>Status</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($student->parents as $parent)
+                @foreach($students as $student)
                 <tr>
-                    <td>{{ $parent->name }}</td>
-                    <td>{{ $parent->date_of_birth }}</td>
-                    <td>{{ $parent->place_of_birth }}</td>
-                    <td>{{ $parent->education_id }}</td>
-                    <td>{{ $parent->job }}</td>
-                    <td>{{ $parent->address }}</td>
+                    <td>{{ $student->name }}</td>
+                    <td>{{ $student->gender }}</td>
+                    <td>{{ \Carbon\Carbon::parse($student->date_of_birth)->format('d-m-Y') }}</td>
+                    <td>{{ $student->place_of_birth }}</td>
+                    <td>{{ $student->agama ? $student->agama->name : 'N/A' }}</td>
+                    <td>{{ $student->address }}</td>
+                    <td>{{ $student->phone }}</td>
+                    <td>{{ $student->number_of_siblings }}</td>
+                    <td>{{ $student->height }} cm</td>
+                    <td>{{ $student->weight }} kg</td>
+                    <td>{{ $student->status ? 'Aktif' : 'Tidak Aktif' }}</td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
     </div>
-    @endforeach
-
 </body>
 </html>
