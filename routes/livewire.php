@@ -52,4 +52,5 @@ Route::middleware(['auth'])->prefix('admin')->group(function(){
 
     Route::get("/category-class",[CategoryClassController::class,'index'])->name('category-class');
     Route::get("/pdf/registration-students",[PDFController::class,'registrasiStudent'])->name('pdf-registrasi');
+    Route::get("/pdf/registration-parent",[PDFController::class,'validAndParentInfoPDF'])->name('pdf-parent-registrasi');
 });

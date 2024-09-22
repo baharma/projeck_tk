@@ -69,6 +69,10 @@
                                 <span>Add Kelas</span>
                             </button>
                             @endif
+                            <button type="button" class="btn btn-secondary btn-sm" wire:click="pdfParent({{ $registrasi->id }})">
+                                <i class='bx bxs-file-pdf' ></i>
+                                <span>PDF</span>
+                            </button>
                         </td>
                     </tr>
                     @endforeach

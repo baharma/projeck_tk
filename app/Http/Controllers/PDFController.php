@@ -32,4 +32,16 @@ class PDFController extends Controller
 
         return $pdf->stream('registration_students.pdf', ['Attachment' => false]);
     }
+
+    public function validAndParentInfoPDF(Request $request){
+
+        $data = $this->repositoryStudent->finds($request->query('id'));
+
+        if (is_null($data)) {
+            return response()->json(['message' => 'No data found'], 404);
+        }
+        $pdf = PDF::loadView('pdf.registration-parent-student', ['student' => $data]);
+
+        return $pdf->stream('registration_students.pdf', ['Attachment' => false]);
+    }
 }

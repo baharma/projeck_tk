@@ -18,6 +18,9 @@ class EloquentRegistrationStudentRepository extends EloquentBaseRepository imple
 {
     use UploadHandler;
 
+    public function finds(int $id){
+        return $this->model->find($id);
+    }
     public function createStudent(array $data)
     {
         if(isset($data['kk_image'])) {
@@ -113,4 +116,5 @@ class EloquentRegistrationStudentRepository extends EloquentBaseRepository imple
 
         return $query->get();
     }
+
 }

@@ -98,6 +98,11 @@ class RegistrationStudentTable extends Component
             'date_end' => $this->form['date_end'],
         ]);
     }
+    public function pdfParent(int $id){
+        return redirect()->route('pdf-parent-registrasi',[
+            'id' =>$id,
+        ]);
+    }
     public function getIdToClass(int $id){
         $this->idStudent = $id;
     }

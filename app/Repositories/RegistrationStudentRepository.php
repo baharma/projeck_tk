@@ -16,4 +16,6 @@ interface RegistrationStudentRepository {
     public function list(array $params);
 
     public function orderDataRegistraasiStuden(array $data);
+
+    public function finds(int $id);
 }
