@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class CategoryClass extends Model
 {
-    use HasFactory , SoftDeletes;
-
+    use HasFactory;
+    protected $table = 'class_student';
     protected $fillable = [
         'name'
     ];

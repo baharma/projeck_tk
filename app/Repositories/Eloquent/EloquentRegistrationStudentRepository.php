@@ -96,27 +96,21 @@ class EloquentRegistrationStudentRepository extends EloquentBaseRepository imple
 
         $query = RegistrationStudent::query();
 
-        // Filter based on date_start and date_end if available and valid
         if (!empty($data['date_start']) && !empty($data['date_end'])) {
             try {
-                // Parse the dates using Carbon
                 $dateStart = \Carbon\Carbon::parse($data['date_start']);
                 $dateEnd = \Carbon\Carbon::parse($data['date_end']);
 
-                // Apply whereBetween filter on created_at column
                 $query->whereBetween('created_at', [$dateStart->startOfDay(), $dateEnd->endOfDay()]);
             } catch (\Exception $e) {
-                // Return an empty collection if the date is invalid
-                return collect(); // Return empty collection
+                return collect();
             }
         }
 
-        // Filter based on status if available
         if (isset($data['status']) && $data['status'] !== null) {
             $query->where('status', $data['status']);
         }
 
-        // Jalankan query dan kembalikan hasilnya
         return $query->get();
     }
 }

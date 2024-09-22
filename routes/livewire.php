@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryClassController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\GalleryController;
@@ -49,5 +50,6 @@ Route::middleware(['auth'])->prefix('admin')->group(function(){
         Route::get('/post/edit-form/{post}','PostEditForm')->name('post-edit.form');
     });
 
+    Route::get("/category-class",[CategoryClassController::class,'index'])->name('category-class');
     Route::get("/pdf/registration-students",[PDFController::class,'registrasiStudent'])->name('pdf-registrasi');
 });
