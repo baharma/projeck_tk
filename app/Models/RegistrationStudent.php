@@ -23,6 +23,7 @@ class RegistrationStudent extends Model
         'kk_image',
         'akta_image',
         'status',
+        'class_id'
     ];
 
     public function parents()
@@ -32,5 +33,8 @@ class RegistrationStudent extends Model
 
     public function agama(){
         return $this->belongsTo(Religion::class,'religion_id','id');
+    }
+    public function kelas(){
+        return $this->belongsTo(CategoryClass::class,'class_id','id');
     }
 }

@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('registration_students', function (Blueprint $table) {
-            $table->integer('class_id');
+            $table->integer('class_id')->nullable();
         });
     }
 

@@ -104,10 +104,16 @@
                 </a>
             </li>
 
+            <li class="menu-item {{ Route::currentRouteName() == 'category-class' ? 'active' : ''; }}">
+                <a href="{{ route('category-class') }}" class="menu-link">
+                    <i class='menu-icon bx bx-alarm-exclamation'></i>
+                    <div data-i18n="User interface">Kelas</div>
+                </a>
+            </li>
             <li class="menu-item {{ in_array( Route::currentRouteName() , ['company.form' , 'social-media.form']) ? 'active open' : '' }}">
-                <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <a href="javascript:void(0);" class="menu-link">
                     <i class="menu-icon tf-icons bx bx-cog"></i>
-                    <div data-i18n="Layouts">Pengaturan</div>
+                    <div data-i18n="Analytics">Pengaturan</div>
                 </a>
 
                 <ul class="menu-sub">
@@ -124,6 +130,7 @@
                             <div data-i18n="Analytics">Sosial Media</div>
                         </a>
                     </li>
+
 
                     <!-- <li class="menu-item {{ Route::currentRouteName() == 'social-media.form' ? 'active' : ''; }}">
                         <a href="{{ route('social-media.form') }}" class="menu-link">

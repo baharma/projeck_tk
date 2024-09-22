@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Module\RegistrationStudent;
 
+use App\Repositories\CategoryClassRepository;
 use App\Repositories\RegistrationStudentRepository;
 use PDF;
 use Livewire\Attributes\On;
@@ -16,18 +17,30 @@ class RegistrationStudentTable extends Component
         'date_start'=>'',
         'date_end'=>''
     ];
-
+    public $kelas,$idStudent;
+    public $catagorryClass;
+    protected $repositoruStudenKategory;
     protected $queryString = [
         'search' => [
             'except' => ''
         ]
     ];
 
+    public function __construct()
+    {
+        $this->repositoruStudenKategory = App(CategoryClassRepository::class);
+    }
     public $search = '';
+
 
     public function updatingSearch()
     {
         $this->resetPage();
+    }
+
+
+    public function mount(){
+        $this->catagorryClass = $this->repositoruStudenKategory->getAll();
     }
 
     public function render()
@@ -84,6 +97,20 @@ class RegistrationStudentTable extends Component
             'date_start' => $this->form['date_start'],
             'date_end' => $this->form['date_end'],
         ]);
+    }
+    public function getIdToClass(int $id){
+        $this->idStudent = $id;
+    }
+    public function saveEdit(){
+        $repo = app(RegistrationStudentRepository::class);
+        $registration = $repo->find($this->idStudent);
+        $repo->updateStudent($registration, ['class_id'=>$this->kelas]);
+        $this->dispatch('swal:modal', [
+            'title' => 'Berhasil Memasukan Kelas',
+            'type' => 'success',
+            'text' => '',
+        ]);
+        $this->dispatch("closeModalkelas");
     }
 
     public function resetForm()

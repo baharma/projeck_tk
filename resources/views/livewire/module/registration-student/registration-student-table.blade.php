@@ -37,6 +37,7 @@
                         <th width="150">Jenis Kelamin</th>
                         <th width="150">Tanggal Registrasi</th>
                         <th width="150">Status</th>
+                        <th width="150">Kelas</th>
                         <th width="220">Aksi</th>
                     </tr>
                 </thead>
@@ -52,6 +53,7 @@
                         <td>
                             <span class="badge {{ $registrasi->status == 'pending' ? 'bg-warning' : 'bg-success' }}">{{ $registrasi->status }}</span>
                         </td>
+                        <td>{{ $registrasi->kelas->name ?? "Kelas Belum Dipilih" }}</td>
                         <td>
                             <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#modalRegistrasi" wire:click.prevent="find({{ $registrasi->id }})">
                                 <i class="bx bx-edit"></i>
@@ -61,6 +63,12 @@
                                 <i class="bx bx-trash"></i>
                                 <span>Hapus</span>
                             </button>
+                            @if ($registrasi->status == 'valid')
+                            <button wire:click='getIdToClass({{ $registrasi->id }})' type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#addClass" >
+                                <i class='bx bx-alarm-exclamation'></i>
+                                <span>Add Kelas</span>
+                            </button>
+                            @endif
                         </td>
                     </tr>
                     @endforeach
@@ -78,13 +86,11 @@
             </div>
         </div>
     </div>
-
             <div wire:ignore class="modal fade" id="modalCenter" tabindex="-1" aria-hidden="true">
                 <div wire:ignore class="modal-dialog modal-dialog-centered" role="document">
-
                   <div wire:ignore class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title" id="modalCenterTitle">Modal title</h5>
+                      <h5 class="modal-title" id="modalCenterTitle">Rekap Registrasi Siswa</h5>
                       <button
                         type="button"
                         class="btn-close"
@@ -134,6 +140,45 @@
                     </button>
                     </div>
                   </div>
+                </div>
+              </div>
+              <div wire:ignore class="modal fade" id="addClass" tabindex="-1" aria-hidden="true">
+                <div wire:ignore class="modal-dialog modal-dialog-centered" role="document">
+                  <div wire:ignore class="modal-content">
+                    <form wire:submit='saveEdit'>
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="modalCenterTitle">Tambah Kelas</h5>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="row">
+                        <div class="col mb-3">
+                            <label for="exampleFormControlSelect1" class="form-label">Kelas</label>
+                            <select wire:model='kelas' class="form-select" id="exampleFormControlSelect1" aria-label="Default select example" wire:model='form.status'>
+                                <option selected></option>
+                                @foreach ($catagorryClass as $item)
+                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" id="closeKelas" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                        Close
+                      </button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class='bx bxs-file-pdf'></i>
+                        Save
+                    </button>
+                    </div>
+                </form>
+                  </div>
 
                 </div>
               </div>
@@ -158,6 +203,10 @@
     });
     $wire.on('closeModal',()=>{
         const idModalButton = document.getElementById("closeModalId")
+        idModalButton.click()
+    })
+    $wire.on('closeModalkelas',()=>{
+        const idModalButton = document.getElementById("closeKelas")
         idModalButton.click()
     })
 </script>
