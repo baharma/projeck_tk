@@ -11,7 +11,7 @@
 
         <div class="row mb-5 justify-content-center">
             <div class="col-lg-8 d-flex justify-content-center">
-                <img class="profile-sekolah" src="{{ asset('asset-kemala/image/profile-sekolah.png') }}" style="object-fit: cover; object-position: center; border-radius: 10px;" alt="">
+                <img class="profile-sekolah" src="{{ asset('asset-kemala/image/profile-sekolah.png') }}" style="object-fit: cover; object-position: center -200px; border-radius: 10px;" alt="">
             </div>
         </div>
         <div class="row justify-content-center">

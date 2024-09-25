@@ -345,3 +345,8 @@ figure{
 .section-about {
   margin-top: -300px;
 }
+
+.dropdown-menu .dropdown-item:focus{
+  background-color: #b61a5b;
+  color: white;
+}

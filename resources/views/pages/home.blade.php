@@ -28,8 +28,8 @@
                     <div class="card-body p-5">
                         <div class="row flex-column-reverse flex-lg-row ">
                             <div class="col-lg-5 ">
-                                <div class="w-full h-full overflow-hidden rounded" style="height: 300px;">
-                                    <img src="{{ asset('assets/images/' . ($banner->url ?? '')) }}" style="object-fit: cover; object-position: center;" alt="">
+                                <div class="w-full h-full overflow-hidden rounded" >
+                                    <img src="{{ asset('assets/images/' . ($banner->url ?? '')) }}" style="object-fit: cover; object-position: center; height: 300px; width: 100%;" alt="">
                                 </div>
                             </div>
                             <div class="col-lg-7 d-flex flex-column justify-content-center ps-lg-5 gap-3 mb-5 mb-lg-auto">
