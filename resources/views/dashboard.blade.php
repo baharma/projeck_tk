@@ -161,7 +161,8 @@
     const chartSiswaEl = document.querySelector('#chartSiswa');
     const chartSiswaConfig = {
       series: [{
-        data: datasets
+        data: datasets,
+        borderColor: '#F94892',
       }],
       chart: {
         height: 215,
@@ -170,7 +171,7 @@
         toolbar: {
           show: false
         },
-        type: 'area'
+        type: 'area',
       },
       dataLabels: {
         enabled: false
