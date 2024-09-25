@@ -111,5 +111,9 @@ class AppServiceProvider extends ServiceProvider
             $view->with('company', $company);
             $view->with('social_media', $socialMedia);
         });
+        View::composer('pages.pendaftaran', function ($view) {
+            $socialMedia = SocialMedia::all();
+            $view->with('social_media', $socialMedia);
+        });
     }
 }

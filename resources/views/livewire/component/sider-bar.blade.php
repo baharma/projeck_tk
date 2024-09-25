@@ -111,7 +111,7 @@
                 </a>
             </li>
             <li class="menu-item {{ in_array( Route::currentRouteName() , ['company.form' , 'social-media.form']) ? 'active open' : '' }}">
-                <a href="javascript:void(0);" class="menu-link">
+                <a href="javascript:void(0);" class="menu-link menu-toggle">
                     <i class="menu-icon tf-icons bx bx-cog"></i>
                     <div data-i18n="Analytics">Pengaturan</div>
                 </a>

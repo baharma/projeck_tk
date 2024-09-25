@@ -7,6 +7,7 @@
     <title>{{ env('APP_NAME', 'TK Kemala Asri') }}</title>
     <!-- Scripts -->
     @vite(['resources/scss/front.scss', 'resources/js/front.js'])
+    @stack('style')
 </head>
 
 <body>

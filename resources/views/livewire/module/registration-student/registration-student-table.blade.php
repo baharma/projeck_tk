@@ -5,6 +5,14 @@
                 <span>List Registrasi Siswa</span>
             </div>
             <div class="d-flex flex-1">
+              <div class="me-3">
+                <select class="form-select " name="education_id" wire:model='class_id' wire:change="filterClass">
+                    <option value="">-- PILIH Kelas --</option>
+                    @foreach($catagorryClass as $class)
+                    <option value="{{ $class->id }}">{{ $class->name }}</option>
+                    @endforeach
+                </select>
+              </div>
                 <div>
                     <div class="input-group">
                         <input wire:model.live.debounce="search" type="text" class="form-control" placeholder="Cari..." aria-describedby="basic-default-password2">
