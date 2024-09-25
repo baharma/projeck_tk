@@ -40,4 +40,11 @@ class Post extends Model
     {
         return 'slug';
     }
+
+    // Fungsi untuk mengambil teks pendek (short text)
+    public function shortText($limit = 100)
+    {
+        // Mengambil $limit karakter pertama dari atribut 'content'
+        return Str::limit(strip_tags($this->article), $limit);
+    }
 }

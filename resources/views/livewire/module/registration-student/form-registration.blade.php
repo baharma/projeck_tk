@@ -9,7 +9,7 @@
     </div>
 </div>
 <div class="row g-2 mb-3">
-    <div class="col-6 mb-0">
+    <div class="col-lg-6 mb-0">
         <label for="emailBasic" class="form-label"><span class="text-danger">*</span> Jenis Kelamin</label>
         <div class="d-flex gap-3 align-items-center">
             <div class="form-check">
@@ -23,10 +23,10 @@
         </div>
         @error('gender') <span class="text-danger"><small>{{ $message }}</small></span> @enderror
     </div>
-    <div class="col-6 mb-0">
+    <div class="col-lg-6 mb-0">
         <label for="religion" class="form-label"><span class="text-danger">*</span> Agama</label>
         <select class="form-select" name="religion_id" wire:model.live='religion_id'>
-            <option value="" disabled @if(is_null($religion_id)) selected @endif>-- PILIH AGAMA --</option>
+            <option value=""  @if(is_null($religion_id)) selected @else disabled @endif>-- PILIH AGAMA --</option>
             @foreach($religions as $religion)
             <option value="{{ $religion->id }}" @if($religion->id == $religion_id) selected @endif>{{ $religion->name }}</option>
             @endforeach
@@ -62,12 +62,12 @@
     </div>
 </div>
 <div class="row g-2 mb-3">
-    <div class="col-4 mb-0">
+    <div class="col-lg-4 mb-0">
         <label for="address" class="form-label">Jumlah Saudara</label>
         <input type="number" class="form-control" placeholder="Cth: 2" wire:model.live='number_of_siblings' />
         @error('number_of_siblings') <span class="text-danger"><small>{{ $message }}</small></span> @enderror
     </div>
-    <div class="col-4 mb-0">
+    <div class="col-lg-4 mb-0">
         <label for="height" class="form-label">Tinggi Badan</label>
         <div class="input-group">
             <input type="number" class="form-control" placeholder="Cth: 2" wire:model.live='height' />
@@ -75,7 +75,7 @@
         </div>
         @error('height') <span class="text-danger"><small>{{ $message }}</small></span> @enderror
     </div>
-    <div class="col-4 mb-0">
+    <div class="col-lg-4 mb-0">
         <label for="weight" class="form-label">Berat Badan</label>
         <div class="input-group">
             <input type="number" class="form-control" placeholder="Cth: 2" wire:model.live='weight' />
@@ -119,7 +119,7 @@
     <div class="col-6 mb-0">
         <label for="education" class="form-label">Pendidikan</label>
         <select class="form-select" name="education_id" wire:model.live='parents.0.education_id'>
-            <option value="" disabled selected>-- PILIH PENDIDIKAN --</option>
+            <option value="">-- PILIH PENDIDIKAN --</option>
             @foreach($educations as $education)
             <option value="{{ $education->id }}">{{ $education->name }}</option>
             @endforeach

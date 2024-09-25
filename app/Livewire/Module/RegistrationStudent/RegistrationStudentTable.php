@@ -31,6 +31,7 @@ class RegistrationStudentTable extends Component
         $this->repositoruStudenKategory = App(CategoryClassRepository::class);
     }
     public $search = '';
+    public $class_id = '';
 
 
     public function updatingSearch()
@@ -48,6 +49,7 @@ class RegistrationStudentTable extends Component
         $repo = app(RegistrationStudentRepository::class);
         $params = [
             'search' => $this->search,
+            'class_id' => $this->class_id,
             'per_page' => 10
         ];
 
@@ -121,5 +123,10 @@ class RegistrationStudentTable extends Component
     public function resetForm()
     {
         $this->dispatch('reset')->to(ModalRegistrationStudent::class);
+    }
+
+    public function filterClass() 
+    {
+        $this->updatingSearch();
     }
 }

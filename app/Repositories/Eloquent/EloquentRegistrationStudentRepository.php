@@ -85,6 +85,9 @@ class EloquentRegistrationStudentRepository extends EloquentBaseRepository imple
             ->when(isset($params['search']), function ($q) use ($params) {
                 $q->where('name', 'like', '%' . $params['search'] . '%');
             })
+            ->when(isset($params['class_id']) && !empty($params['class_id']), function ($q) use ($params) {
+                $q->where('class_id', $params['class_id']);
+            })
 
             ->orderByDesc('created_at');
 

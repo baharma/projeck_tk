@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg bg-white sticky-top">
     <div class="container">
-        <a class="navbar-brand" href="{{ url('/') }}">
-            <img src="{{ asset('assets/images/' . $company->logo) }}" alt="">
+        <a class="navbar-brand " href="{{ url('/') }}">
+            <img class="navbar-brand-2x" src="{{ asset('assets/images/' . $company->logo) }}" alt="">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -12,7 +12,7 @@
                     <a class="nav-link" aria-current="page" href="{{ url('/') }}">Beranda</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('profile') }}">Profile Sekolah</a>
+                    <a class="nav-link" href="{{ route('profile') }}">Profil Sekolah</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -22,7 +22,7 @@
                         <li><a class="dropdown-item" href="{{ route('kegiatan-akademik') }}">Kegiatan</a></li>
                         <li><a class="dropdown-item" href="{{ route('prestasi') }}">Presatasi</a></li>
                         <li><a class="dropdown-item" href="{{ route('fasilitas') }}">Fasilitas</a></li>
-                        <li><a class="dropdown-item" href="{{ route('gallery-Image') }}">Gallery</a></li>
+                        <li><a class="dropdown-item" href="{{ route('gallery-Image') }}">Galeri</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
