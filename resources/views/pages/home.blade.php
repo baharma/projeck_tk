@@ -175,7 +175,7 @@
                     <div class="carousel-inner">
                         @foreach($galery as $item)
                             <div class="carousel-item active position-relative rounded overflow-hidden">
-                                <img src="{{ asset('assets/images/'.$item->url) }}" class="d-block w-100" alt="...">
+                                <img src="{{ asset('assets/images/'.$item->url) }}" class="d-block w-100" style="height: 480px; object-fit: cover; object-position: center;" alt="...">
                                 <div class="position-absolute text-white bottom-0 z-1 w-full py-3 px-3" style="background-color: #F94892;">
                                     <h2 style=" display: -webkit-box;
                                     -webkit-line-clamp: 2;
