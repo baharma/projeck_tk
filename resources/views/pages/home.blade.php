@@ -38,7 +38,7 @@
                                         Tentang Sekolah
                                     </h3>
                                     <p style="text-align: justify;">
-                                        TK Kemala Asri telah beroperasi sejak tahun 2015 dan telah mencetak lulusan siswa yang cerdas , berkualitas dan mamp mandiri sejak usia dini. Sekolah kami telah terakreditasi B oleh kemdikbud berdasarkan fasilitas, proses mengajar dan tenaga pengajar. TK Kemala Asri terletak di pinggir jalan di Kecamatan Tampaksiring, Kabupaten Gianyar tepatnya di Banjar Tarukan Pejeng Kaja, Tampaksiring.
+                                        TK Kemala Asri telah beroperasi sejak tahun 2015 dan telah mencetak lulusan siswa yang cerdas, berkualitas, dan mandiri sejak usia dini. Sekolah kami telah terakreditasi B oleh Kemdikbud berdasarkan fasilitas, proses mengajar, dan tenaga pengajar. TK Kemala Asri terletak di pinggir jalan di Kecamatan Tampaksiring, Kabupaten Gianyar, tepatnya di Banjar Tarukan Pejeng Kaja, Tampaksiring.
                                     </p>
                                 </div>
                             </div>
