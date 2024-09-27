@@ -77,6 +77,10 @@
                 <td>{{ $student->weight }}</td>
             </tr>
             <tr>
+                <th>Kelas</th>
+                <td>{{ $student->kelas->name }}</td>
+            </tr>
+            <tr>
                 <th>Status</th>
                 <td>{{ $student->status ? 'Aktif' : 'Tidak Aktif' }}</td>
             </tr>

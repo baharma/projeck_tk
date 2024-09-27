@@ -20,8 +20,7 @@ class PDFController extends Controller
         $data = $this->repositoryStudent->orderDataRegistraasiStuden(
             [
                 'status' => $request->query('status'),
-                'date_start' => $request->query('date_start'),
-                'date_end' => $request->query('date_end'),
+                'class_id' => $request->query('class_id'),
             ]
         );
 

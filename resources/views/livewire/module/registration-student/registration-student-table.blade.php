@@ -122,23 +122,14 @@
                         </div>
                       </div>
                       <div class="row g-2">
-                        <div class="col mb-0">
-                          <label for="emailWithTitle" class="form-label">Start Date</label>
-                          <input
-                            type="date"
-                            id="emailWithTitle"
-                            class="form-control"
-                            wire:model='form.date_start'
-                          />
-                        </div>
-                        <div class="col mb-0">
-                          <label for="dobWithTitle" class="form-label">End Date</label>
-                          <input
-                            type="date"
-                            id="dobWithTitle"
-                            class="form-control"
-                            wire:model='form.date_end'
-                          />
+                        <div class="col mb-3">
+                            <label for="exampleFormControlSelect1" class="form-label">Kelas</label>
+                            <select wire:model='form.kelas_id' class="form-select" id="exampleFormControlSelect1" aria-label="Default select example" wire:model='form.status'>
+                                <option selected></option>
+                                @foreach ($catagorryClass as $item)
+                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                @endforeach
+                            </select>
                         </div>
                       </div>
                     </div>

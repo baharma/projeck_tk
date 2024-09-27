@@ -102,19 +102,14 @@ class EloquentRegistrationStudentRepository extends EloquentBaseRepository imple
 
         $query = RegistrationStudent::query();
 
-        if (!empty($data['date_start']) && !empty($data['date_end'])) {
-            try {
-                $dateStart = \Carbon\Carbon::parse($data['date_start']);
-                $dateEnd = \Carbon\Carbon::parse($data['date_end']);
-
-                $query->whereBetween('created_at', [$dateStart->startOfDay(), $dateEnd->endOfDay()]);
-            } catch (\Exception $e) {
-                return collect();
-            }
-        }
 
         if (isset($data['status']) && $data['status'] !== null) {
             $query->where('status', $data['status']);
+        }
+
+
+        if (isset($data['class_id']) && $data['class_id'] !== null) {
+            $query->where('class_id', $data['class_id']);
         }
 
         return $query->get();

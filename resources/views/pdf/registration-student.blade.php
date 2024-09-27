@@ -97,6 +97,7 @@
                     <th>Jumlah Saudara</th>
                     <th>Tinggi Badan</th>
                     <th>Berat Badan</th>
+                    <th>Kelas</th>
                     <th>Status</th>
                 </tr>
             </thead>
@@ -113,6 +114,7 @@
                     <td>{{ $student->number_of_siblings }}</td>
                     <td>{{ $student->height }} cm</td>
                     <td>{{ $student->weight }} kg</td>
+                    <td>{{$student->kelas->name}}</td>
                     <td>{{ $student->status ? 'Aktif' : 'Tidak Aktif' }}</td>
                 </tr>
                 @endforeach

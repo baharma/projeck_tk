@@ -14,8 +14,7 @@ class RegistrationStudentTable extends Component
     use WithPagination;
     public $form = [
         'status'=>false,
-        'date_start'=>'',
-        'date_end'=>''
+        'kelas_id'=>''
     ];
     public $kelas,$idStudent;
     public $catagorryClass;
@@ -96,8 +95,7 @@ class RegistrationStudentTable extends Component
     public function save(){
         return redirect()->route('pdf-registrasi',[
             'status' => $this->form['status'],
-            'date_start' => $this->form['date_start'],
-            'date_end' => $this->form['date_end'],
+            'class_id' => $this->form['kelas_id'],
         ]);
     }
     public function pdfParent(int $id){
@@ -125,7 +123,7 @@ class RegistrationStudentTable extends Component
         $this->dispatch('reset')->to(ModalRegistrationStudent::class);
     }
 
-    public function filterClass() 
+    public function filterClass()
     {
         $this->updatingSearch();
     }
